@@ -7,10 +7,10 @@ import AnimatedRoutes from './components/AnimatedRoutes';
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    window.onload = () => {
+  useEffect(() => {    
+    setTimeout(()=>{
       setLoading(false);
-    };
+    },2000)
 
     return () => {
       window.onload = null;

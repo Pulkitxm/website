@@ -2,18 +2,18 @@ import React, { useEffect, useRef } from 'react';
 import Typewriter from '../components/Typing';
 import './pages.css';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import _404 from '../assets/404.gif'
 const Home = () => {
+  const pageTransition = {
+    initial: { transform: 'translateY(100%)' },
+    animate: {transform: 'translateY(0%)' },
+    exit: { transform: 'translateY(-100%)' },
+    transition: { duration: 2 },
+  };
+
   return (
-    <motion.div
-      className='notfound'
-      initial={{ opacity: 0, transform: 'translateY(10%)' }}
-      animate={{
-        opacity: 1,
-        transform: 'translateY(0px)',
-        exit: { opacity: 0, transform: 'translateY(-10%)' }
-      }}
-    >
+    <motion.div className="notfound" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
        <div className="not-found-container">
                 <h1 className="not-found-heading">404 - Page Not Found</h1>
                 <p className="not-found-description">
@@ -25,7 +25,7 @@ const Home = () => {
                     className="not-found-image"
                 />
                 <h2 className="not-found-back-link">
-                    <a href="/">{'- Go back to the home page'}</a>
+                    <Link to="/">{'- Go back to the home page'}</Link>
                 </h2>
             </div>
     </motion.div>

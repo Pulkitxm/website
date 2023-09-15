@@ -8,16 +8,15 @@ const github_url = 'https://github.com/Pulkitxm';
 const linkedin_url = 'http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8';
 const Resume = () => {
 
+  const pageTransition = {
+    initial: { transform: 'translateY(100%)' },
+    animate: {transform: 'translateY(0%)' },
+    exit: { transform: 'translateY(-100%)' },
+    transition: { duration: 2 },
+  };
+
   return (
-    <motion.div
-      className='resume'
-      initial={{ opacity: 0, transform: 'translateY(10%)' }}
-      animate={{
-        opacity: 1,
-        transform: 'translateY(0px)',
-        exit: { opacity: 0, transform: 'translateY(-10%)' }
-      }}
-    >
+    <motion.div className="resume" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
 
       <a href="https://drive.google.com/uc?id=1Hy5eN3W9oyMOyf0SF8dTIENq0-HpAmfT&export=download" class="buttonDownload">Download this page (.pdf)</a>
       <h1 className='h1-resume' >Pulkit</h1>

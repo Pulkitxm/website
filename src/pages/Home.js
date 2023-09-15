@@ -37,8 +37,8 @@ const Home = () => {
   function parallax(e) {
     imageRefs.current.forEach((move) => {
       const moving_value = move.getAttribute('data-value');
-      const x = (e.clientX - move.offsetLeft) * moving_value / 1000;
-      const y = (e.clientY - move.offsetTop) * moving_value / 1000;
+      const x = (e.clientX - move.offsetLeft) * moving_value / 900;
+      const y = (e.clientY - move.offsetTop) * moving_value / 900;
 
       move.style.transform = `translate(${x}px , ${y}px)`;
     });
@@ -48,16 +48,16 @@ const Home = () => {
     e.preventDefault();
   }
 
+  const pageTransition = {
+    initial: { transform: 'translateY(100%)' },
+    animate: {transform: 'translateY(0%)' },
+    exit: { transform: 'translateY(-100%)' },
+    transition: { duration: 2 },
+  };
+
   return (
-    <motion.div
-      className='home'
-      initial={{ opacity: 0, transform: 'translateY(10%)',transitionDuration:2 }}
-      animate={{
-        opacity: 1,
-        transform: 'translateY(0px)',
-        exit: { opacity: 0, transform: 'translateY(-10%)',transitionDuration:2 }
-      }}
-    >
+    <motion.div className="home" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
+    
       <div className='orange'></div>
       <div className='card'>
         <p>
@@ -94,15 +94,15 @@ const Home = () => {
         </Link>
       </div>
       <div className='imgs'>
-        <img src={img1} draggable='false' className='img-dingle' data-value='-4' alt='' />
-        <img src={img2} draggable='false' className='img-dingle' data-value='6' alt='' />
-        <img src={img3} draggable='false' className='img-dingle' data-value='4' alt='' />
-        <img src={img4} draggable='false' className='img-dingle' data-value='-6' alt='' />
-        <img src={img5} draggable='false' className='img-dingle' data-value='8' alt='' />
-        <img src={img6} draggable='false' className='img-dingle' data-value='-4' alt='' />
-        <img src={img7} draggable='false' className='img-dingle' data-value='5' alt='' />
-        <img src={img8} draggable='false' className='img-dingle' data-value='-9' alt='' />
-        <img src={img9} draggable='false' className='img-dingle' data-value='-5' alt='' />
+        <img src={img1} draggable='false' className='img-dingle' data-value='-4' alt='' style={{userSelect:"none"}}  />
+        <img src={img2} draggable='false' className='img-dingle' data-value='6' alt='' style={{userSelect:"none"}}  />
+        <img src={img3} draggable='false' className='img-dingle' data-value='4' alt='' style={{userSelect:"none"}}  />
+        <img src={img4} draggable='false' className='img-dingle' data-value='-6' alt='' style={{userSelect:"none"}}  />
+        <img src={img5} draggable='false' className='img-dingle' data-value='8' alt='' style={{userSelect:"none"}}  />
+        <img src={img6} draggable='false' className='img-dingle' data-value='-4' alt='' style={{userSelect:"none"}}  />
+        <img src={img7} draggable='false' className='img-dingle' data-value='5' alt='' style={{userSelect:"none"}}  />
+        <img src={img8} draggable='false' className='img-dingle' data-value='-9' alt='' style={{userSelect:"none"}}  />
+        <img src={img9} draggable='false' className='img-dingle' data-value='-5' alt='' style={{userSelect:"none"}}  />
       </div>
     </motion.div>
   );

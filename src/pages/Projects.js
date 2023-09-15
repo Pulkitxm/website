@@ -8,6 +8,30 @@ import star from '../assets/starss.svg'
 const projects = [
   
   {
+    title: 'Whatsapp Clone',
+    linkText:'Github',
+    link:'https://github.com/Pulkitxm/Whatsapp',
+    vidCode: 'gdr_j1lzlWU',
+    skills : 'MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS, JWT',
+    desc : `🚀 Just Completed My MERN Stack Project: Building a Real-Time Chat Application! 📱💬 I'm thrilled to share my latest project, a real-time chat application built using the MERN stack (MongoDB, Express.js, React, Node.js). While real-time applications often use Socket.IO for instant messaging, I took a slightly different approach for this project to make it more accessible for beginners. 🔗 Backend (Node.js and Express.js): The backend handles user authentication and chat data storage. When a user logs in, their chats are retrieved from the database and displayed in the frontend. 💼 Database (MongoDB): MongoDB stores user information, including chat messages. User chats are organized and retrieved based on the sender and receiver IDs. 🎨 Frontend (React): The frontend is where the magic happens! It provides a user-friendly interface for sending and receiving messages. Messages are sorted by timestamp and displayed in a conversation view. A user can easily switch between different chat partners. 🔄 Chat Refresh Feature: Instead of using Socket.IO for real-time updates, I implemented a chat refresh feature. By clicking the "Refresh" button, users can retrieve the latest messages in their chats. This feature works smoothly, ensuring that users see new messages without constant server polling. 🔒 Authentication: To maintain user privacy and security, I implemented user authentication. Users must log in with a valid username and password to access their chats. 📦 Local Storage: I used local storage to store chat data locally, reducing the need for repeated database queries and enhancing the user experience. 🚧 Error Handling: I included robust error handling to provide feedback to users when something goes wrong, such as incorrect login credentials. 🌟 This project challenged me to think creatively and find alternative solutions to real-time messaging. While Socket.IO is a popular choice, this project shows that with careful design and development, we can achieve similar functionality in a more straightforward way.`
+  },
+  {
+    title: 'Blog Application',
+    linkText:'Github',
+    link:'https://github.com/Pulkitxm/fullstackopen/tree/main/part4',
+    vidCode: 'jd_tlqJ_kJg',
+    skills : 'MongoDB Atlas,MongoDb,mongoose,ExpressJS,NodeJS,ReactJS',
+    desc: `🚀 Just launched my MERN stack project! 📝🔗 Excited to share my latest accomplishment: a fully functional blog application built using the MERN stack! 🌐📚 🔐 Secure User Authentication: Implemented a user login feature to ensure only authorized users can contribute to the blog. 📝 Informative Content: Each blog post showcases essential details like URL, title, and author, providing a seamless reading experience. 👍 Interactivity at its Best: Readers can engage with the content using dynamic features such as the like button, fostering an interactive community. 🗑️ Easy Content Management: Empowered users with the ability to delete posts, keeping the platform clutter-free and organized. ➕ Seamless Additions: Added a convenient 'Add a Blog' form, enabling contributors to share their insights effortlessly. Though styles are a work in progress, I'm thrilled about the functionality and user experience I've achieved! Looking forward to refining the aesthetics while users enjoy the content. 🎨👁️`
+  },
+  {
+    title: 'Dictionary',
+    linkText:'Dictionary',
+    link:'https://pulkitxm.github.io/Dicitionary/',
+    vidCode: 'pwUYkU8blWE',
+    skills : 'Html CSS JS(fetch api)',
+    desc: `📚 Exciting News: I've just completed my latest project, a dynamic online dictionary tool! 🔍 With this tool, you can easily search for words and get their meanings right away. But that's not all – it also provides pronunciations, synonyms, antonyms, and usage examples for a comprehensive understanding of each word. 🎧 Ever wondered how a word sounds? You can even listen to its pronunciation with just a click! 🚀 I built this dictionary using JavaScript and DictionaryAPI. It was an amazing learning experience, and I'm proud to share the result with you.`
+  },
+  {
     title: 'BuyWithPulkit - React',
     linkText:'BuyWithPulkit vercel.ap',
     link:'https://buywithpulkit.vercel.app/',
@@ -86,16 +110,15 @@ Stay tuned for the official release of the Color Picker Extension. I can't wait 
 ];
 
 const Projects = () => {
+  const pageTransition = {
+    initial: { transform: 'translateY(100%)' },
+    animate: {transform: 'translateY(0%)' },
+    exit: { transform: 'translateY(-100%)' },
+    transition: { duration: 2 },
+  };
+
   return (
-    <motion.div
-      className='projects'
-      initial={{ opacity: 0, transform: 'translateY(10%)' }}
-      animate={{
-        opacity: 1,
-        transform: 'translateY(0px)',
-        exit: { opacity: 0, transform: 'translateY(-10%)' }
-      }}
-    >
+    <motion.div className="projects" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
       <div className="top">
         Some of my Projects &nbsp; <img src={star} alt="" />
       </div>

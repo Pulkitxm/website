@@ -53,16 +53,15 @@ const Contact = () => {
     }
   };
 
+  const pageTransition = {
+    initial: { transform: 'translateY(100%)' },
+    animate: {transform: 'translateY(0%)' },
+    exit: { transform: 'translateY(-100%)' },
+    transition: { duration: 2 },
+  };
+
   return (
-    <motion.div
-      className='contact'
-      initial={{ opacity: 0, transform: 'translateY(10%)' }}
-      animate={{
-        opacity: 1,
-        transform: 'translateY(0px)',
-        exit: { opacity: 0, transform: 'translateY(-10%)' }
-      }}
-    >
+    <motion.div className="contact" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
       <h1>Lets Connect with me</h1>
       <form className="cf" onSubmit={handleSubmit}>
         <input type="text" name="name" id="input-name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />

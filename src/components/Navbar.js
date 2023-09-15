@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './components.css';
 import Typewriter from './Typing';
 
 const Navbar = (props) => {
+  const [show, setshow] = useState(false)
   const location = useLocation();
-
+  useState(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },2000)
+  })
   return (
     <div className='nav'>
       <Link to='/'>
         <div className="nav-pk"></div>
         <h1 className='Typewriter' >
-          {!props.isloaded ? <Typewriter text="Pulkit" speed={100} /> : <Typewriter text=" " speed={100} />}
+          {!props.isloaded&&show ? 
+            <Typewriter text="Pulkit" speed={100} />
+            :
+            <Typewriter text="‎" speed={100} />}
         </h1>
       </Link>
       <ul className='nav-ul'>

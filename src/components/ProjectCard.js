@@ -1,6 +1,7 @@
 import ReactPlayer from 'react-player/youtube'
+import newtab from '../assets/newtab.png'
 import React from 'react';
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project,scrollToNextProject }) => {
   return (
     <div className="card_box">
       <div className="card_vid">
@@ -17,7 +18,7 @@ const ProjectCard = ({ project }) => {
         <div className="card_data">
           link - &nbsp;
           <span className="card_item__link">
-            <a href={project.link} target='_blank' style={{ color: 'orange', textDecoration: 'underline' }} >{project.linkText}</a>
+            <a href={project.link} target='_blank' style={{ color: 'orange', textDecoration: 'underline' }} >{project.linkText}  </a>
           </span>
           <br />
           <br />
@@ -31,6 +32,9 @@ const ProjectCard = ({ project }) => {
             {project.desc}
           </span>
         </div>
+      </div>
+      <div className="button-container">
+          <button className='scrollNext' onClick={scrollToNextProject}>{"Next ->"}</button>
       </div>
     </div>
   );
