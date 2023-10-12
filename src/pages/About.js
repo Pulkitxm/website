@@ -3,13 +3,7 @@ import './pages.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const About = () => {
-  const pageTransition = {
-    initial: { transform: 'translateY(100%)' },
-    animate: {transform: 'translateY(0%)' },
-    exit: { transform: 'translateY(-100%)' },
-    transition: { duration: 2 },
-  };
+const About = ({pageTransition}) => {
 
   return (
     <motion.div className="about" initial="initial" animate="animate" exit="exit" variants={pageTransition}>

@@ -15,7 +15,7 @@ import img7 from '../assets/logos/premeiere.png';
 import img8 from '../assets/logos/py.png';
 import img9 from '../assets/logos/react.png';
 
-const Home = () => {
+const Home = ({pageTransition}) => {
   const imageRefs = useRef([]);
 
   useEffect(() => {
@@ -47,13 +47,6 @@ const Home = () => {
   function disableRightClick(e) {
     e.preventDefault();
   }
-
-  const pageTransition = {
-    initial: { transform: 'translateY(100%)' },
-    animate: {transform: 'translateY(0%)' },
-    exit: { transform: 'translateY(-100%)' },
-    transition: { duration: 2 },
-  };
 
   return (
     <motion.div className="home" initial="initial" animate="animate" exit="exit" variants={pageTransition}>

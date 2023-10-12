@@ -4,13 +4,7 @@ import './pages.css';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import _404 from '../assets/404.gif'
-const Home = () => {
-  const pageTransition = {
-    initial: { transform: 'translateY(100%)' },
-    animate: {transform: 'translateY(0%)' },
-    exit: { transform: 'translateY(-100%)' },
-    transition: { duration: 2 },
-  };
+const Home = ({pageTransition}) => {
 
   return (
     <motion.div className="notfound" initial="initial" animate="animate" exit="exit" variants={pageTransition}>

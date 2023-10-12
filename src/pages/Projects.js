@@ -8,6 +8,45 @@ import star from '../assets/starss.svg'
 const projects = [
   
   {
+    title: 'BlogKit - the Blogging Application',
+    linkText:'Github',
+    link:'https://github.com/Pulkitxm/BlogKit',
+    vidCode: 'zJbR01Rd1F0',
+    skills : 'MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS, EJs',
+    desc : `Excited to share a feature-rich blog application where you can create, view, edit, and delete blogs effortlessly. Here's what you can do:
+    ✍️ Create Blogs: Craft your blogs with rich text formatting, including bold and italics. Align your content left, center, or right. Add horizontal rules, insert images, and create clickable links. Our real-time preview makes it a breeze.
+    📚 View Blogs: Explore blogs created by you and other talented writers. Enjoy the beautifully formatted content, complete with images and links.
+    ✏️ Edit Blogs: Made a mistake? No worries! Edit your blogs anytime. Our editor allows you to make changes and see them instantly.
+    🗑️ Delete Blogs: Need to remove a blog? We've got you covered. A simple "delete" button lets you remove your blogs with ease.
+    👍 Likes: Show some love for your favorite blogs by giving them a thumbs-up. See how many others appreciated the content.
+    🌐 Navigation: Seamlessly move around the app with user-friendly links and buttons. It's all about making your experience smooth and enjoyable.
+    Join me on this blogging journey! Try it out, share your thoughts, and let's create and appreciate fantastic content together. 🌟`
+  },
+  {
+    title: 'Ejs Chat Application',
+    linkText:'Github',
+    link:'https://github.com/Pulkitxm/Delta-Apna-College/tree/main/46.%20MongoDb%20with%20Express',
+    vidCode: 'urdwDxs2haM',
+    skills : 'MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS, EJs',
+    desc : `Exciting news! I've just completed my journey of learning EJS, Mongoose, Node.js, and Express by building a fully functional chat application. 🌐💻
+    Key Features:
+    ✅ Real-time messaging with multiple users.
+    ✅ Elegant UI powered by EJS templates.
+    ✅ Secure user authentication.
+    ✅ CRUD operations for messages.
+    It's been an incredible learning experience, and I'm thrilled to showcase my newfound skills in web development. 🌟
+    I want to give a big shoutout to the amazing developer community for all the support and resources. 🙌👩‍💻
+    Feel free to check out my project on GitHub [] and let me know your thoughts! 💡👇`
+  },
+  {
+    title: 'Quora Post Application',
+    linkText:'Github',
+    link:'https://github.com/Pulkitxm/quora-application',
+    vidCode: 'w8-I6wDb63c',
+    skills : 'MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS',
+    desc : `Hey Folks,I am thrilled to share my latest project - a Quora Posts Application! 🌟📌 What is it all about?This application is a platform that allows users to Create, Read, Update, and Delete (CRUD) their posts, fostering a dynamic and engaging environment for knowledge sharing and discussion.🚀 Key Features:📝 Create Posts: Share your thoughts, questions, or insights with the world.📖 Read Posts: Explore a wide range of topics and learn from the community's wisdom.✏️ Update Posts: Edit and refine your content to keep it fresh and relevant.🗑️ Delete Posts: Manage your content easily.🌐 Tech Stack:Frontend: I've used EJS (Embedded JavaScript) for the user-friendly interface.Backend: Express.js powers the robust server-side functionality.👩‍💻 How It Works:Signup/Login: Users can create accounts or log in securely.Post Creation: Share your ideas, questions, or insights in just a few clicks.Explore Content: Dive into an ever-growing library of posts and engage with the community.Edit and Delete: Modify your posts or remove them as needed.🤝 Join the Conversation:I invite all of you to check out my Quora Posts Application and be a part of this thriving community. Your feedback, questions, and contributions are highly valued and will help make this platform even better!📢 Spread the Word:Please help me in spreading the word about this project. Share this post, and let's grow this community together!🔗 Connect with Me:If you're interested in collaborating, discussing tech, or just want to connect, feel free to send me a message or connect with me on LinkedIn.Let's make knowledge sharing and engaging discussions more accessible and enjoyable. Join me on this exciting journey! 🚀`
+  },
+  {
     title: 'Whatsapp Clone',
     linkText:'Github',
     link:'https://github.com/Pulkitxm/Whatsapp',
@@ -109,18 +148,12 @@ Stay tuned for the official release of the Color Picker Extension. I can't wait 
   },
 ];
 
-const Projects = () => {
-  const pageTransition = {
-    initial: { transform: 'translateY(100%)' },
-    animate: {transform: 'translateY(0%)' },
-    exit: { transform: 'translateY(-100%)' },
-    transition: { duration: 2 },
-  };
+const Projects = ({pageTransition}) => {
 
   return (
     <motion.div className="projects" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
       <div className="top">
-        Some of my Projects &nbsp; <img src={star} alt="" />
+        Projects I made &nbsp; <img src={star} alt="" />
       </div>
       <ProjectSlider projects={projects} />
       

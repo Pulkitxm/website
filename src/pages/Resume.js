@@ -6,15 +6,8 @@ import linkedin from '../assets/icons/linkedin.png';
 import newtab from '../assets/newtab.png'
 const github_url = 'https://github.com/Pulkitxm';
 const linkedin_url = 'http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8';
-const Resume = () => {
-
-  const pageTransition = {
-    initial: { transform: 'translateY(100%)' },
-    animate: {transform: 'translateY(0%)' },
-    exit: { transform: 'translateY(-100%)' },
-    transition: { duration: 2 },
-  };
-
+const Resume = ({pageTransition}) => {
+  
   return (
     <motion.div className="resume" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
 

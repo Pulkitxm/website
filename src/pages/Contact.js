@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com'; // Import the EmailJS library
 import codepen from '../assets/icons/codepen.png';
 import facebook from '../assets/icons/facebook.png';
 import github from '../assets/icons/github.png';
@@ -10,17 +11,18 @@ import youtube from '../assets/icons/youtube.png';
 
 const Icon = ({ url, Class, path }) => {
   return (
-    <a href={url} id={".icons"} target="_blank" rel="noopener noreferrer">
+    <a href={url} target="_blank" rel="noopener noreferrer">
       <img src={path} className={Class} draggable='false' alt="icon" />
     </a>
   );
 };
 
-const Contact = () => {
+const Contact = ({pageTransition}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [submitText, setsubmitText] = useState("")
 
   const codepen_url = 'https://codepen.io/teckyPulkit';
   const facebook_url = 'https://www.facebook.com/Pulkit.fb/';
@@ -32,9 +34,8 @@ const Contact = () => {
 
   const isFormValid = name && email && subject && message;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const sendEmail = (e) => {
+    e.preventDefault()
     if (isFormValid) {
       const formattedMessage = `
         Name: ${name}
@@ -42,37 +43,50 @@ const Contact = () => {
         Subject: ${subject}
         Message: ${message}
       `;
-      const whatsappURL = `https://api.whatsapp.com/send?phone=919654950988&text=${encodeURIComponent(formattedMessage)}`;
-      window.open(whatsappURL, '_blank');
 
-      // Reset form after submission
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
+      // Replace with your EmailJS service ID and template ID
+      const serviceId = 'service_d8jslwj';
+      const templateId = 'template_jhvj4zb';
+
+      // Replace with your EmailJS user ID
+      const userId = 'vgn5g8Coo7AD1lJKP';
+
+      const templateParams = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: formattedMessage,
+      };
+
+      emailjs.send(serviceId, templateId, templateParams, userId)
+        .then((response) => {
+          // Reset form after submission
+          setName('');
+          setEmail('');
+          setSubject('');
+          setMessage('');
+          setsubmitText("Sent via Email")
+          setTimeout(()=>{
+            setsubmitText("Submit")
+          },5000)
+        })
+        .catch((error) => {
+          console.error('Email error:', error);
+        });
     }
-  };
-
-  const pageTransition = {
-    initial: { transform: 'translateY(100%)' },
-    animate: {transform: 'translateY(0%)' },
-    exit: { transform: 'translateY(-100%)' },
-    transition: { duration: 2 },
   };
 
   return (
     <motion.div className="contact" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
       <h1>Lets Connect with me</h1>
-      <form className="cf" onSubmit={handleSubmit}>
+      <form className="cf" onSubmit={sendEmail}>
         <input type="text" name="name" id="input-name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
         <input type="email" name="email" id="input-email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <input type="text" name="subject" id="input-subject" placeholder="Subject" value={subject} onChange={(e) => setSubject(e.target.value)} required />
         <textarea name="message" id="input-message" placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
         {
-          !isFormValid?<button type="submit" id="input-submit-disabled">Submit</button> : <button type="submit" id="input-submit">Submit</button>
+          !isFormValid ? <button type="submit" id="input-submit-disabled">{submitText}</button> : <button type="submit" id="input-submit">Submit</button>
         }
-
-        
       </form>
       <div className="social-handles">
         <Icon path={codepen} Class='codepen' url={codepen_url} />
