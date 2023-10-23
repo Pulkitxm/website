@@ -22,7 +22,7 @@ const Contact = ({pageTransition}) => {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  const [submitText, setsubmitText] = useState("")
+  const [submitText, setsubmitText] = useState("Submit")
 
   const codepen_url = 'https://codepen.io/teckyPulkit';
   const facebook_url = 'https://www.facebook.com/Pulkit.fb/';
@@ -75,7 +75,7 @@ const Contact = ({pageTransition}) => {
         });
     }
   };
-
+  console.log(submitText);
   return (
     <motion.div className="contact" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
       <h1>Lets Connect with me</h1>
