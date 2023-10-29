@@ -18,16 +18,16 @@ const AnimatedRoutes = (props) => {
         animate: { filter: "blur(0px)" },
         exit: { filter: "blur(20px)" },
         transition: { duration: 1 },
-      };
+    }
     return (
         <AnimatePresence>
             <Routes key={location.pathname} location={location}>
-                <Route path="/" element={<Home isloaded={props.isloaded} pageTransition={pageTransition} />} />
-                <Route path="/about" element={<About pageTransition={pageTransition} />} />
-                <Route path="/contact" element={<Contact pageTransition={pageTransition} />} />
-                <Route path="/projects" element={<Projects pageTransition={pageTransition} />} />
-                <Route path="/resume" element={<Resume pageTransition={pageTransition} />} />
-                <Route path="/*" element={<NotFound pageTransition={pageTransition} />} />
+                <Route path="/" element={<Home isloaded={props.isloaded} setProgress={props.setProgress} pageTransition={pageTransition}/>} />
+                <Route path="/about" element={<About setProgress={props.setProgress} pageTransition={pageTransition} />} />
+                <Route path="/contact" element={<Contact setProgress={props.setProgress} pageTransition={pageTransition} />} />
+                <Route path="/projects" element={<Projects setProgress={props.setProgress} pageTransition={pageTransition} />} />
+                <Route path="/resume" element={<Resume setProgress={props.setProgress} pageTransition={pageTransition} />} />
+                <Route path="/*" element={<NotFound setProgress={props.setProgress} pageTransition={pageTransition} />} />
             </Routes>
         </AnimatePresence>
     )

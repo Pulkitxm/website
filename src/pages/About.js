@@ -3,7 +3,7 @@ import './pages.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const About = ({pageTransition}) => {
+const About = ({pageTransition,setProgress}) => {
 
   return (
     <motion.div className="about" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
@@ -22,7 +22,7 @@ const About = ({pageTransition}) => {
           My ultimate goal is to leverage my skills to build innovative web applications that solve real-world problems and positively impact people's lives. I'm always open to new opportunities and collaborations, so feel free to reach out if you'd like to connect or work together on exciting projects.
         </p>
         <p className='bitbig' >
-          Thank you for visiting my website, and I hope you find my work inspiring! If you have any questions or just want to say hello, don't hesitate to <Link to='/contact' >get in touch</Link>.
+          Thank you for visiting my website, and I hope you find my work inspiring! If you have any questions or just want to say hello, don't hesitate to <Link to='/contact' onClick={()=>setProgress(100)} >get in touch</Link>.
         </p>
         <p className='bitbig link-linkedin' >
           <u>

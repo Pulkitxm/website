@@ -15,7 +15,7 @@ import img7 from '../assets/logos/premeiere.png';
 import img8 from '../assets/logos/py.png';
 import img9 from '../assets/logos/react.png';
 
-const Home = ({pageTransition}) => {
+const Home = ({pageTransition,setProgress}) => {
   const imageRefs = useRef([]);
 
   useEffect(() => {
@@ -49,53 +49,121 @@ const Home = ({pageTransition}) => {
   }
 
   return (
-    <motion.div className="home" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
-    
-      <div className='orange'></div>
-      <div className='card'>
+    <motion.div
+      className="home"
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={pageTransition}
+    >
+      <div className="orange"></div>
+      <div className="card">
         <p>
-          <span className='spani'>
-            {'01'} <span className='spanarr'> {'<'}</span>
+          <span className="spani">
+            {"01"} <span className="spanarr"> {"<"}</span>
           </span>
-          <Typewriter text='Hi! I am Pulkit' speed={100} />
-          <span className='spani'>
-            <span className='spanarr'> {'>'}</span>
+          <Typewriter text="Hi! I am Pulkit" speed={100} />
+          <span className="spani">
+            <span className="spanarr"> {">"}</span>
           </span>
         </p>
         <p>
-          <span className='spani'>
-            {'02'} <span className='spanarr'> {'<'}</span>
+          <span className="spani">
+            {"02"} <span className="spanarr"> {"<"}</span>
           </span>
-          <Typewriter text='I am a Frontend Web Developer' speed={100} />
-          <span className='spani'>
-            <span className='spanarr'> {'>'}</span>
+          <Typewriter text="I am a Frontend Web Developer" speed={100} />
+          <span className="spani">
+            <span className="spanarr"> {">"}</span>
           </span>
         </p>
         <p>
-          <span className='spani'>
-            {'03'} <span className='spanarr'> {'<'}</span>
+          <span className="spani">
+            {"03"} <span className="spanarr"> {"<"}</span>
           </span>
-          <Typewriter text='Video Editor and Tech. Enthusiast' speed={100} />
-          <span className='spani'>
-            <span className='spanarr'> {'>'}</span>
+          <Typewriter text="Video Editor and Tech. Enthusiast" speed={100} />
+          <span className="spani">
+            <span className="spanarr"> {">"}</span>
           </span>
         </p>
       </div>
-      <div className='subtext' style={{ zIndex: 1 }}>
-        <Link to={'/about'}>
+      <div className="subtext" style={{ zIndex: 1 }}>
+        <Link to={"/about"} onClick={() => setProgress(100)}>
           <h2>know more about me</h2>
         </Link>
       </div>
-      <div className='imgs'>
-        <img src={img1} draggable='false' className='img-dingle' data-value='-4' alt='' style={{userSelect:"none"}}  />
-        <img src={img2} draggable='false' className='img-dingle' data-value='6' alt='' style={{userSelect:"none"}}  />
-        <img src={img3} draggable='false' className='img-dingle' data-value='4' alt='' style={{userSelect:"none"}}  />
-        <img src={img4} draggable='false' className='img-dingle' data-value='-6' alt='' style={{userSelect:"none"}}  />
-        <img src={img5} draggable='false' className='img-dingle' data-value='8' alt='' style={{userSelect:"none"}}  />
-        <img src={img6} draggable='false' className='img-dingle' data-value='-4' alt='' style={{userSelect:"none"}}  />
-        <img src={img7} draggable='false' className='img-dingle' data-value='5' alt='' style={{userSelect:"none"}}  />
-        <img src={img8} draggable='false' className='img-dingle' data-value='-9' alt='' style={{userSelect:"none"}}  />
-        <img src={img9} draggable='false' className='img-dingle' data-value='-5' alt='' style={{userSelect:"none"}}  />
+      <div className="imgs">
+        <img
+          src={img1}
+          draggable="false"
+          className="img-dingle"
+          data-value="-4"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img2}
+          draggable="false"
+          className="img-dingle"
+          data-value="6"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img3}
+          draggable="false"
+          className="img-dingle"
+          data-value="4"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img4}
+          draggable="false"
+          className="img-dingle"
+          data-value="-6"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img5}
+          draggable="false"
+          className="img-dingle"
+          data-value="8"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img6}
+          draggable="false"
+          className="img-dingle"
+          data-value="-4"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img7}
+          draggable="false"
+          className="img-dingle"
+          data-value="5"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img8}
+          draggable="false"
+          className="img-dingle"
+          data-value="-9"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
+        <img
+          src={img9}
+          draggable="false"
+          className="img-dingle"
+          data-value="-5"
+          alt=""
+          style={{ userSelect: "none" }}
+        />
       </div>
     </motion.div>
   );
