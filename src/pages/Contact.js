@@ -75,7 +75,6 @@ const Contact = ({pageTransition}) => {
         });
     }
   };
-  console.log(submitText);
   return (
     <motion.div className="contact" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
       <h1>Lets Connect with me</h1>

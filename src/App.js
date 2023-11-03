@@ -22,13 +22,15 @@ const App = () => {
 
   return (
     <>
-      <LoadingBar
-        color="#f11946"
-        progress={progress}
-        height={5}
-        onLoaderFinished={() => setProgress(0)}
-      />
-      <Router>
+      <Router style={{
+        oveflowX: "hidden"
+      }}>
+        <LoadingBar
+          color="#f11946"
+          progress={progress}
+          height={5}
+          onLoaderFinished={() => setProgress(0)}
+        />
         <Navbar isloaded={loading} setProgress={setProgress} />
         <div className="contentofpulkit">
           <AnimatedRoutes setProgress={setProgress} />

@@ -151,12 +151,23 @@ Stay tuned for the official release of the Color Picker Extension. I can't wait 
 const Projects = ({pageTransition}) => {
 
   return (
-    <motion.div className="projects" initial="initial" animate="animate" exit="exit" variants={pageTransition}>
-      <div className="top">
-        Projects I made &nbsp; <img src={star} alt="" />
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={pageTransition}
+      className="projects"
+      >
+      <div
+        style={{
+          height: '100%',
+        }}
+      >
+        <div className="top">
+          Projects I made &nbsp; <img src={star} alt="" />
+        </div>
+        <ProjectSlider projects={projects} />
       </div>
-      <ProjectSlider projects={projects} />
-      
     </motion.div>
   );
 };
