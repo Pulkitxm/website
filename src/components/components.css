@@ -1,214 +1,273 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 :root {
-    --leftval: 410px;
-    --accentcolor: rgba(255, 0, 0, .101);
+  --leftval: 410px;
+  --accentcolor: rgba(255, 0, 0, 0.101);
 }
-
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 .nav-pk {
-    border-radius: 50%;
-    transition: .5s;
-    box-shadow: 3px 3px 55px var(--accentcolor);
-    background: url('../assets/pulkit-nav.jpg');
-    width: 20rem;
-    height: 20rem;
-    background-size: cover;
+  border-radius: 50%;
+  transition: 0.5s;
+  box-shadow: 3px 3px 55px var(--accentcolor);
+  background: url("../assets/pulkit-nav.jpg");
+  width: 20rem;
+  height: 20rem;
+  background-size: cover;
 }
 
 .nav {
-    user-select: none;
-    color: #000000;
-    height: 98%;
-    width: 350px;
-    display: inline-flex;
-    align-items: center;
-    flex-direction: column;
-    padding: .5rem;
-    transition: .2s;
-    z-index: 1000;
-    border-radius: 1em;
+  user-select: none;
+  color: #000000;
+  height: 100%;
+  width: 350px;
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  grid-template-rows: repeat(20, 1fr) !important;
+  padding: 0.5rem;
+  transition: 0.2s;
+  z-index: 1000;
+  border-radius: 1em;
 }
 
 .nav:hover {
-    transform: translateX(10px);
-    transition: .5s;
-    box-shadow: 5px 0 40px 0 var(--accentcolor);
+  transform: translateX(10px);
+  transition: 0.5s;
+  box-shadow: 5px 0 40px 0 var(--accentcolor);
 }
 
 .nav h1 {
-    user-select: none;
-    font-family: 'Cedarville Cursive';
+  user-select: none;
+  font-weight: 900 !important;
+  font-family: "Cedarville Cursive" !important;
+}
+
+#name span {
+  user-select: none;
+  font-family: "Cedarville Cursive" !important;
 }
 
 .nav ul {
-    list-style: none;
+  list-style: none;
+  grid-row: 2/21 !important;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .nav a h1 span {
-    display: block;
-    text-align: center;
-    font-size: 2em;
-    color: var(--primColor);
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  color: var(--primColor) !important;
 }
 
 .active,
-ul li a {
-    cursor: pointer;
-}
-
-.nav-ul li.active a {
-    color: var(--primColor);
+ul a {
+  cursor: pointer;
 }
 
 ul a:hover {
-    color: red;
+  color: red;
 }
 
 .nav-ul li {
-    list-style: none;
-    /* border: solid 2px black; */
-    text-align: center;
-    margin: 10px 0;
+  list-style: none;
+  /* border: solid 2px black; */
+  text-align: center;
+  margin: 10px 0;
 }
 
 .nav-ul a li {
-    font-size: 1.7em;
-    color: #000;
+  font-size: 1.7em;
+  color: #000;
 }
 
 .nav-ul li a img {
-    width: 1.6rem;
-    transform: translateY(2px);
+  width: 1.6rem;
+  transform: translateY(2px);
 }
 
-.glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    /* color: #fff; */
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.Item {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase !important;
+  position: relative;
+  color: #ccc !important;
+  font-weight: 900 !important;
 }
-
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+@media (width>1400px) {
+  .homeLi:before {
+    content: "Home";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    left: 0;
+    color: var(--primColor) !important;
     top: 0;
-    border-radius: 10px;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .homeLi:hover:before {
+    width: 100%;
+  }
+  .homeLiSm:before {
+    content: "Pulkit";
+    position: absolute;
+    color: var(--primColor) !important;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .homeLiSm:hover:before {
+    width: 100%;
+  }
+  .whoAmILi:before {
+    content: "About";
+    position: absolute;
+    color: var(--primColor) !important;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .whoAmILi:hover:before {
+    width: 100%;
+  }
+  .projectsLi:before {
+    content: "Projects";
+    position: absolute;
+    color: var(--primColor) !important;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .projectsLi:hover:before {
+    width: 100%;
+  }
+  .resumeLi:before {
+    content: "Resume";
+    position: absolute;
+    color: var(--primColor) !important;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .resumeLi:hover:before {
+    width: 100%;
+  }
+  .contactLi:before {
+    content: "Contact";
+    position: absolute;
+    color: var(--primColor) !important;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  .contactLi:hover:before {
+    width: 100%;
+  }
 }
-
+@media (width<1400px) {
+  .homeLi:hover,
+  .homeLiSm:hover,
+  .whoAmILi:hover,
+  .projectsLi:hover,
+  .resumeLi:hover,
+  .contactLi:hover{
+    color: var(--primColor) !important;
+  }
+}
 
 .card_box {
-    width: 40em;
-    margin: 0 1em;
-    background-color: #000;
-    color: white;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 10px;
-    box-shadow: 15px 15px 200px rgba(0, 0, 0, .5);
+  width: 40em;
+  margin: 0 1em;
+  background-color: #000;
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 15px 15px 200px rgba(0, 0, 0, 0.5);
 }
 
 .card_vid {
-    width: 100%;
-    height: 20em;
+  width: 100%;
+  height: 20em;
 }
 
 .card_vid video {
-    width: 100%;
+  width: 100%;
 }
 
 .card_vid iframe {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .card_item {
-    padding: 20px 30px;
+  padding: 20px 30px;
 }
 
 .card_title {
-    margin-top: 2em;
-    font-size: 1.5rem;
-    color: red;
+  margin-top: 2em;
+  font-size: 1.5rem;
+  color: red;
 }
 
 .card_item_link p,
 .card_item_skills p {
-    color: red;
+  color: red;
 }
 
 .projects {
-    height: 100%;
-    width: 100%;
-    background: url('../assets/bg.png')no-repeat;
-    background-size: cover;
-    overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  background: url("../assets/bg.png") no-repeat;
+  background-size: cover;
+  overflow-y: scroll;
 }
 
 .slider {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .scroll-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0;
-    /* Start with opacity 0, so it's hidden initially */
-    transition: opacity 0.3s ease-in-out;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  /* Start with opacity 0, so it's hidden initially */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .scroll-button.show {
-    opacity: 1;
-    /* Show the button when the 'show' class is applied */
+  opacity: 1;
+  /* Show the button when the 'show' class is applied */
 }
 
 .scroll-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }

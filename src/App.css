@@ -1,41 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif !important;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 :root {
-    --primColor: rgb(248, 176, 83);
+  --primColor: rgb(248, 176, 83);
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--primColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primColor) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-#root {
+@media (width>1400px) {
+  #root {
     background-color: #fff;
     width: 95%;
     height: 90%;
     box-shadow: 5px 5px 50px #0000005e;
-    display: inline-flex;
+    display: flex;
     border-radius: 1em;
-    padding: 1em;
+    padding: 2em !important;
+  }
 }
 
-a{
-    text-decoration: none;
+@media (width<=1400px) {
+  #root {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 1em;
+    padding: 2em !important;
+  }
 }
 
-.Typewriter > p{
-    color: green;
-    display: inline;
+a {
+  text-decoration: none;
 }
 
-.contentofpulkit{
+.Typewriter > p {
+  color: green;
+  display: inline;
+}
+
+@media (width<1400px) {
+  .contentofpulkit {
+    margin-top: 5em;
     height: 100%;
     width: 100%;
     overflow-x: hidden;
@@ -43,69 +65,91 @@ a{
     flex-direction: column;
     border-radius: 1em;
     overflow: hidden;
+  }
+  .projects {
+    width: 80%;
+  }
+  .home,
+  .resume,
+  .contact,
+  .projects,
+  .about {
+    height: 88% !important;
+    border-radius: 1em !important;
+  }
+}
+
+.contentofpulkit {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+  overflow: hidden;
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-a:active{
-    text-decoration: none;
+a:active {
+  text-decoration: none;
 }
 
 .Typewriter {
-    display: inline;
-    color: red;
+  display: inline;
+  color: red;
 }
 
-.loading-container{
-    background-color: rgb(0, 0, 0);
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    animation: fade-out 2s 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loading-container {
+  background-color: rgb(0, 0, 0);
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  animation: fade-out 2s 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.loading-container .loader {    
-    border: solid 10px rgb(255, 255, 255);
-    border-top: solid 10px rgb(96, 255, 96);
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    transform: translate(-50%,-50%);
-    animation: spin 2s linear infinite;
+.loading-container .loader {
+  border: solid 10px rgb(255, 255, 255);
+  border-top: solid 10px rgb(96, 255, 96);
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  transform: translate(-50%, -50%);
+  animation: spin 2s linear infinite;
 }
 @keyframes spin {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    25% {
-        opacity: 0.75;
-    }
+  25% {
+    opacity: 0.75;
+  }
 
-    50% {
-        opacity: .5;
-    }
+  50% {
+    opacity: 0.5;
+  }
 
-    75% {
-        opacity: 0.25;
-    }
+  75% {
+    opacity: 0.25;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }

@@ -1,0 +1,11 @@
+.nav-sm-screen .container{
+    width: 100%;
+}
+.nav-sm-screen .container-fluid ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    font-size: .8em !important;
+    margin: 0;
+    padding: 0;
+}

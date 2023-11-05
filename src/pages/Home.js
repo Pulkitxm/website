@@ -15,18 +15,18 @@ import img7 from '../assets/logos/premeiere.png';
 import img8 from '../assets/logos/py.png';
 import img9 from '../assets/logos/react.png';
 
-const Home = ({pageTransition,setProgress}) => {
+const Home = ({ pageTransition, setProgress, width }) => {
   const imageRefs = useRef([]);
 
-  const [firstLine, setFirstLine] = useState(false)
-  const [secondLine, setSecondLine] = useState(false)
-  const [thirdLine, setThirdLine] = useState(false)
+  const [firstLine, setFirstLine] = useState(false);
+  const [secondLine, setSecondLine] = useState(false);
+  const [thirdLine, setThirdLine] = useState(false);
 
   useEffect(() => {
     initializeInitialPositions();
-    document.addEventListener('mousemove', parallax);
-    document.querySelectorAll('.img-dingle').forEach((img) => {
-      img.addEventListener('contextmenu', disableRightClick);
+    document.addEventListener("mousemove", parallax);
+    document.querySelectorAll(".img-dingle").forEach((img) => {
+      img.addEventListener("contextmenu", disableRightClick);
     });
     setTimeout(() => {
       setFirstLine(true);
@@ -36,21 +36,21 @@ const Home = ({pageTransition,setProgress}) => {
     }, 2000);
     setTimeout(() => {
       setThirdLine(true);
-    },4000);
+    }, 4000);
     return () => {
-      document.removeEventListener('mousemove', parallax);
+      document.removeEventListener("mousemove", parallax);
     };
   }, []);
 
   function initializeInitialPositions() {
-    imageRefs.current = document.querySelectorAll('.img-dingle');
+    imageRefs.current = document.querySelectorAll(".img-dingle");
   }
 
   function parallax(e) {
     imageRefs.current.forEach((move) => {
-      const moving_value = move.getAttribute('data-value');
-      const x = (e.clientX - move.offsetLeft) * moving_value / 900;
-      const y = (e.clientY - move.offsetTop) * moving_value / 900;
+      const moving_value = move.getAttribute("data-value");
+      const x = ((e.clientX - move.offsetLeft) * moving_value) / 900;
+      const y = ((e.clientY - move.offsetTop) * moving_value) / 900;
 
       move.style.transform = `translate(${x}px , ${y}px)`;
     });
@@ -59,7 +59,6 @@ const Home = ({pageTransition,setProgress}) => {
   function disableRightClick(e) {
     e.preventDefault();
   }
-
   return (
     <motion.div
       className="home"
@@ -68,15 +67,23 @@ const Home = ({pageTransition,setProgress}) => {
       exit="exit"
       variants={pageTransition}
     >
-      <div className="orange"></div>
-      <div className="card">
+      {width > 1100 && <div className="orange"></div>}
+      <div
+        className="card"
+        style={{
+          width: '100%',
+          display: 'flex',
+          flexWrap: 'no-wrap',
+          fontSize: width > 1100 ? '1.5rem' : '.5rem',
+          transform:'scale(0.8)',
+        }}
+      >
         <p>
+          <br />
           <span className="spani">
             {"01"} <span className="spanarr"> {"<"}</span>
           </span>
-          {firstLine && (
-          <Typewriter text="Hi! I am Pulkit" speed={50} />
-          )}
+          {firstLine && <Typewriter text="Hi! I am Pulkit" speed={50} />}
           <span className="spani">
             <span className="spanarr"> {">"}</span>
           </span>
@@ -109,80 +116,84 @@ const Home = ({pageTransition,setProgress}) => {
           <h2>know more about me</h2>
         </Link>
       </div>
-      <div className="imgs">
-        <img
-          src={img1}
-          draggable="false"
-          className="img-dingle"
-          data-value="-4"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img2}
-          draggable="false"
-          className="img-dingle"
-          data-value="6"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img3}
-          draggable="false"
-          className="img-dingle"
-          data-value="4"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img4}
-          draggable="false"
-          className="img-dingle"
-          data-value="-6"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img5}
-          draggable="false"
-          className="img-dingle"
-          data-value="8"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img6}
-          draggable="false"
-          className="img-dingle"
-          data-value="-4"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img7}
-          draggable="false"
-          className="img-dingle"
-          data-value="5"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img8}
-          draggable="false"
-          className="img-dingle"
-          data-value="-9"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-        <img
-          src={img9}
-          draggable="false"
-          className="img-dingle"
-          data-value="-5"
-          alt=""
-          style={{ userSelect: "none" }}
-        />
-      </div>
+      {width > 1100 ? (
+        <div className="imgs">
+          <img
+            src={img1}
+            draggable="false"
+            className="img-dingle"
+            data-value="-4"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img2}
+            draggable="false"
+            className="img-dingle"
+            data-value="6"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img3}
+            draggable="false"
+            className="img-dingle"
+            data-value="4"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img4}
+            draggable="false"
+            className="img-dingle"
+            data-value="-6"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img5}
+            draggable="false"
+            className="img-dingle"
+            data-value="8"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img6}
+            draggable="false"
+            className="img-dingle"
+            data-value="-4"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img7}
+            draggable="false"
+            className="img-dingle"
+            data-value="5"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img8}
+            draggable="false"
+            className="img-dingle"
+            data-value="-9"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+          <img
+            src={img9}
+            draggable="false"
+            className="img-dingle"
+            data-value="-5"
+            alt=""
+            style={{ userSelect: "none" }}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
     </motion.div>
   );
 };

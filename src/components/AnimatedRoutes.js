@@ -20,17 +20,68 @@ const AnimatedRoutes = (props) => {
         transition: { duration: 1 },
     }
     return (
-        <AnimatePresence>
-            <Routes key={location.pathname} location={location}>
-                <Route path="/" element={<Home isloaded={props.isloaded} setProgress={props.setProgress} pageTransition={pageTransition}/>} />
-                <Route path="/about" element={<About setProgress={props.setProgress} pageTransition={pageTransition} />} />
-                <Route path="/contact" element={<Contact setProgress={props.setProgress} pageTransition={pageTransition} />} />
-                <Route path="/projects" element={<Projects setProgress={props.setProgress} pageTransition={pageTransition} />} />
-                <Route path="/resume" element={<Resume setProgress={props.setProgress} pageTransition={pageTransition} />} />
-                <Route path="/*" element={<NotFound setProgress={props.setProgress} pageTransition={pageTransition} />} />
-            </Routes>
-        </AnimatePresence>
-    )
+      <AnimatePresence>
+        <Routes key={location.pathname} location={location}>
+          <Route
+            path="/"
+            element={
+              <Home
+                width={props.width}
+                isloaded={props.isloaded}
+                setProgress={props.setProgress}
+                pageTransition={pageTransition}
+              />
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <About
+                setProgress={props.setProgress}
+                pageTransition={pageTransition}
+              />
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Contact
+                setProgress={props.setProgress}
+                pageTransition={pageTransition}
+              />
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <Projects
+                setProgress={props.setProgress}
+                pageTransition={pageTransition}
+              />
+            }
+          />
+          <Route
+            path="/resume"
+            element={
+              <Resume
+                width={props.width}
+                setProgress={props.setProgress}
+                pageTransition={pageTransition}
+              />
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <NotFound
+                setProgress={props.setProgress}
+                pageTransition={pageTransition}
+              />
+            }
+          />
+        </Routes>
+      </AnimatePresence>
+    );
 }
 
 export default AnimatedRoutes

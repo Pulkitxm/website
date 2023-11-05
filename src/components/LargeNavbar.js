@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './components.css';
-import Typewriter from './Typing';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./components.css";
+import Typewriter from "./Typing";
 
 const Navbar = (props) => {
-  const [show, setshow] = useState(false)
+  const [show, setshow] = useState(false);
   const location = useLocation();
-  useState(()=>{
-    setTimeout(()=>{
-      setshow(true)
-    },2000)
-  })
+  useState(() => {
+    setTimeout(() => {
+      setshow(true);
+    }, 2000);
+  });
   return (
     <div className="nav">
       <Link to="/">
         <div className="nav-pk" onClick={(e) => props.setProgress(100)}></div>
-        <h1 className="Typewriter" onClick={(e) => props.setProgress(100)}>
+        <h1
+          className="Typewriter"
+          id="name"
+          onClick={(e) => props.setProgress(100)}
+        >
           {!props.isloaded && show ? (
             <Typewriter text="Pulkit" speed={100} />
           ) : (
@@ -26,10 +30,10 @@ const Navbar = (props) => {
       <ul className="nav-ul">
         <Link draggable="false" to="/">
           <li
-            className={
+              className={
               location.pathname === "/"
-                ? "active glow-on-hover"
-                : "glow-on-hover"
+                ? "activeItem Item homeLi"
+                : "Item homeLi"
             }
             onClick={(e) => props.setProgress(100)}
           >
@@ -38,22 +42,22 @@ const Navbar = (props) => {
         </Link>
         <Link draggable="false" to="/about">
           <li
-            className={
+              className={
               location.pathname === "/about"
-                ? "active glow-on-hover"
-                : "glow-on-hover"
+                ? "activeItem Item whoAmILi"
+                : "Item whoAmILi"
             }
             onClick={(e) => props.setProgress(100)}
           >
-            Who Am I ?
+            About
           </li>
         </Link>
         <Link draggable="false" to="/projects">
           <li
-            className={
+              className={
               location.pathname === "/projects"
-                ? "active glow-on-hover"
-                : "glow-on-hover"
+                ? "activeItem Item projectsLi"
+                : "Item projectsLi"
             }
             onClick={(e) => props.setProgress(100)}
           >
@@ -62,10 +66,10 @@ const Navbar = (props) => {
         </Link>
         <Link draggable="false" to="/resume">
           <li
-            className={
+              className={
               location.pathname === "/resume"
-                ? "active glow-on-hover"
-                : "glow-on-hover"
+                ? "activeItem Item resumeLi"
+                : "Item resumeLi"
             }
             onClick={(e) => props.setProgress(100)}
           >
@@ -74,10 +78,10 @@ const Navbar = (props) => {
         </Link>
         <Link draggable="false" to="/contact">
           <li
-            className={
+              className={
               location.pathname === "/contact"
-                ? "active glow-on-hover"
-                : "glow-on-hover"
+                ? "activeItem Item contactLi"
+                : "Item contactLi"
             }
             onClick={(e) => props.setProgress(100)}
           >

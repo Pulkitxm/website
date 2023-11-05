@@ -61,38 +61,56 @@
 .orange {
     width: 100px;
     height: 100px;
-    background-color: var(--primColor);
+    background-color: var(--primColor) !important;
     border-radius: 30px;
     position: fixed;
     z-index: -3;
     transform: translate(-385%, -80%);
 }
-
+  @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@1,700&display=swap');
 .card {
-    user-select: none;
-    width: 45em;
-    height: 10em;
-    border: solid 3px rgb(155, 155, 155);
-    border-radius: 20px;
-    padding: 0 0 0 30px;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, .6);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    animation: cardanimate 2s;
+    font-family: 'Sometype Mono', monospace !important;
+    user-select: none !important ;
+    border: solid 3px rgb(155, 155, 155) !important ;
+    border-radius: 20px !important ;
+    z-index: 2 !important ;
+    background-color: rgba(255, 255, 255, .6) ;
+    display: flex !important ;
+    justify-content: center !important ;
+    flex-direction: column !important ;
+    animation: cardanimate 2s !important ;
+    padding: 30px !important ;
 }
-
-.subtext {
-    /* text-align: right; */
-    user-select: none;
-    width: 45em;
-    z-index: 2;
-    color: red;
-    animation: subtextanimate 2s;
+@media (width>1100) {
+    .card{
+        width: 45em !important ;
+        height: 14em !important ;
+    }
+    .subtext {
+        /* text-align: right; */
+        user-select: none;
+        width: 45em;
+        z-index: 2;
+        color: red;
+        animation: subtextanimate 2s;
+    }
+}
+@media (width<=1100) {
+    .card{
+        width: 100% ;
+        height: 40em !important ;
+    }
+    .subtext {
+        user-select: none;
+        width: 45em;
+        z-index: 2;
+        color: red;
+        animation: subtextanimate 2s;
+    }
 }
 
 .subtext a h2 {
+    font-size: 1.5em;
     color: grey;
 }
 
@@ -119,8 +137,9 @@
 .home .card p {
     cursor: text;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 900;
     color: #000;
+    margin: 0;
 }
 
 .home .card p .spani {
@@ -131,7 +150,7 @@
 .home .card p .spanarr {
     font-size: 2rem;
     padding: 0 10px;
-    color: var(--primColor);
+    color: var(--primColor) !important;
     font-weight: 900;
 }
 
@@ -142,6 +161,7 @@
     position: absolute;
     width: 70%;
     height: 100%;
+    opacity: 0.5;
 }
 
 .img-dingle {
@@ -274,7 +294,7 @@ form input:focus {
 
 form #input-submit {
     color: white;
-    background: var(--primColor);
+    background: var(--primColor) !important;
     cursor: pointer;
     border: 0;
 }
@@ -294,94 +314,53 @@ form #input-submit-disabled:hover {
     box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
 }
 
-.social-handles {
-    position: absolute;
-    bottom: 100px;
-}
-
-.codepen {
-    width: 50px;
-    padding: 0 10px;
+.social-handles a svg {
+    width: 50px !important;
+    height: 50px !important;
     opacity: 0.5;
     transition: .5s;
-}
-
-.facebook {
-    width: 50px;
-    padding: 0 10px;
-    opacity: 0.5;
-    transition: .5s;
-}
-
-.github {
-    width: 50px;
-    padding: 0 10px;
-    opacity: 0.5;
-    transition: .5s;
-}
-
-.gmail {
-    width: 60px;
-    height: 60px;
-    opacity: 0.5;
-    transition: .5s;
-    padding: 0 10px;
-    transform: translateY(5px);
-}
-
-.instagram {
-    width: 69px;
-    padding: 0 5px;
-    opacity: 0.5;
-    transition: .5s;
-}
-
-.linkedin {
-    width: 70px;
-    padding: 0 1px;
-    opacity: 0.5;
-    transition: .5s;
-    transform: translateY(5px);
-}
-
-.youtube {
-    width: 50px;
-    padding: 0 10px;
-    opacity: 0.5;
-    transition: .5s;
+    /* transform: scale(50); */
+    margin: 0 1em;
+    color: var(--primColor);
 }
 
 .codepen:hover {
+    color: #000;
     opacity: 1;
-    transform: scale(1.3);
-}
+    transform: scale(1.3);}
 
 .facebook:hover {
+    color: rgb(0, 0, 175);
     opacity: 1;
     transform: scale(1.3);
 }
 
 .github:hover {
+    color: #000;
     opacity: 1;
     transform: scale(1.3);
 }
 
 .gmail:hover {
+    color: #000;
     opacity: 1;
     transform: scale(1.3);
 }
 
 .instagram:hover {
+    color: rgb(255, 17, 57);
     opacity: 1;
     transform: scale(1.3);
 }
 
 .linkedin:hover {
+    color: blue;
     opacity: 1;
     transform: scale(1.3);
 }
 
 .youtube:hover {
+    color: red;
     opacity: 1;
     transform: scale(1.3);
 }
@@ -927,7 +906,7 @@ form #input-submit-disabled:hover {
     display: block;
     margin: auto;
     font-size: 2em;
-    background-color: var(--primColor);
+    background-color: var(--primColor) !important;
     border-radius: 1em;
     cursor: pointer;
     padding: .1em .2em;
