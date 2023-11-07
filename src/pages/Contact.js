@@ -19,7 +19,7 @@ const Icon = ({ url, Class, path }) => {
   );
 };
 
-const Contact = ({ pageTransition }) => {
+const Contact = ({ pageTransition, width }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -86,6 +86,12 @@ const Contact = ({ pageTransition }) => {
       exit="exit"
       variants={pageTransition}
     >
+      {width < 400 && (
+        <>
+          <br />
+          <br />
+        </>
+      )}
       <h1>Lets Connect with me</h1>
       <form className="cf" onSubmit={sendEmail}>
         <input
@@ -123,15 +129,17 @@ const Contact = ({ pageTransition }) => {
           onChange={(e) => setMessage(e.target.value)}
           required
         ></textarea>
-        {!isFormValid ? (
-          <button type="submit" id="input-submit-disabled">
-            {submitText}
-          </button>
-        ) : (
-          <button type="submit" id="input-submit">
-            Submit
-          </button>
-        )}
+        <div className="submit-btncontainer">
+          {!isFormValid ? (
+            <button type="submit" id="input-submit-disabled">
+              {submitText}
+            </button>
+          ) : (
+            <button type="submit" id="input-submit">
+              Submit
+            </button>
+          )}
+        </div>
       </form>
       <div className="social-handles">
         <a href={codepen_url} target="_blank" rel="noopener noreferrer">
@@ -156,6 +164,12 @@ const Contact = ({ pageTransition }) => {
           <FaYoutube className={"youtube"} />
         </a>
       </div>
+      {width < 400 && (
+        <>
+          <br />
+          <br />
+        </>
+      )}
     </motion.div>
   );
 };

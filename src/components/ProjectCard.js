@@ -1,13 +1,13 @@
 import React from "react";
 import ReactPlayer from "react-player/lazy";
+
+import { FaAngleDown } from "react-icons/fa6";
+
 const ProjectCard = ({ project, scrollToNextProject }) => {
   return (
     <div className="card_box">
       <div className="card_vid">
-        {/* <iframe width="560" height="715" src={"https://www.youtube.com/embed/" + project.vidCode} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
-        <ReactPlayer 
-          url={"https://www.youtube.com/embed/" + project.vidCode} 
-        />
+        <ReactPlayer url={"https://www.youtube.com/embed/" + project.vidCode} />
       </div>
       <div className="card_item">
         <div className="card_title">{project.title}</div>
@@ -37,11 +37,7 @@ const ProjectCard = ({ project, scrollToNextProject }) => {
           <span>{project.desc}</span>
         </div>
       </div>
-      <div className="button-container">
-        <button className="scrollNext" onClick={scrollToNextProject}>
-          {"Next ->"}
-        </button>
-      </div>
+      <FaAngleDown className="scrollNext" onClick={scrollToNextProject} />
     </div>
   );
 };

@@ -38,6 +38,7 @@ const AnimatedRoutes = (props) => {
             element={
               <About
                 setProgress={props.setProgress}
+                width={props.width}
                 pageTransition={pageTransition}
               />
             }
@@ -47,6 +48,7 @@ const AnimatedRoutes = (props) => {
             element={
               <Contact
                 setProgress={props.setProgress}
+                width={props.width}
                 pageTransition={pageTransition}
               />
             }
@@ -57,6 +59,7 @@ const AnimatedRoutes = (props) => {
               <Projects
                 setProgress={props.setProgress}
                 pageTransition={pageTransition}
+                width={props.width}
               />
             }
           />

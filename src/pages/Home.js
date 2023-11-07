@@ -1,19 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Typewriter from '../components/Typing';
-import './pages.css';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from "react";
+import Typewriter from "../components/Typing";
+import "./pages.css";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Import the images
-import img1 from '../assets/logos/bootstrap.png';
-import img2 from '../assets/logos/c.png';
-import img3 from '../assets/logos/css.png';
-import img4 from '../assets/logos/html.png';
-import img5 from '../assets/logos/java.png';
-import img6 from '../assets/logos/js.png';
-import img7 from '../assets/logos/premeiere.png';
-import img8 from '../assets/logos/py.png';
-import img9 from '../assets/logos/react.png';
+import img1 from "../assets/logos/bootstrap.png";
+import img2 from "../assets/logos/c.png";
+import img3 from "../assets/logos/css.png";
+import img4 from "../assets/logos/html.png";
+import img5 from "../assets/logos/java.png";
+import img6 from "../assets/logos/js.png";
+import img7 from "../assets/logos/premeiere.png";
+import img8 from "../assets/logos/py.png";
+import img9 from "../assets/logos/react.png";
+
+import LargeCard from "../components/LargeCard";
+import SmallCard from "../components/SmallCard";
 
 const Home = ({ pageTransition, setProgress, width }) => {
   const imageRefs = useRef([]);
@@ -67,56 +70,41 @@ const Home = ({ pageTransition, setProgress, width }) => {
       exit="exit"
       variants={pageTransition}
     >
-      {width > 1100 && <div className="orange"></div>}
-      <div
-        className="card"
-        style={{
-          width: '100%',
-          display: 'flex',
-          flexWrap: 'no-wrap',
-          fontSize: width > 1100 ? '1.5rem' : '.5rem',
-          transform:'scale(0.8)',
-        }}
-      >
-        <p>
+      {width < 400 && (
+        <>
           <br />
-          <span className="spani">
-            {"01"} <span className="spanarr"> {"<"}</span>
-          </span>
-          {firstLine && <Typewriter text="Hi! I am Pulkit" speed={50} />}
-          <span className="spani">
-            <span className="spanarr"> {">"}</span>
-          </span>
-        </p>
-        <p>
-          <span className="spani">
-            {"02"} <span className="spanarr"> {"<"}</span>
-          </span>
-          {secondLine && (
-            <Typewriter text="I am a Full Stack Developer," speed={50} />
-          )}
-          <span className="spani">
-            <span className="spanarr"> {">"}</span>
-          </span>
-        </p>
-        <p>
-          <span className="spani">
-            {"03"} <span className="spanarr"> {"<"}</span>
-          </span>
-          {thirdLine && (
-            <Typewriter text="Video Editor and Tech. Enthusiast" speed={50} />
-          )}
-          <span className="spani">
-            <span className="spanarr"> {">"}</span>
-          </span>
-        </p>
-      </div>
-      <div className="subtext" style={{ zIndex: 1 }}>
-        <Link to={"/about"} onClick={() => setProgress(100)}>
-          <h2>know more about me</h2>
-        </Link>
-      </div>
-      {width > 1100 ? (
+          <br />
+        </>
+      )}
+      {width > 1100 && <div className="orange"></div>}
+      {width > 800 ? (
+        <LargeCard
+          width={width}
+          firstLine={firstLine}
+          thirdLine={thirdLine}
+          secondLine={secondLine}
+        />
+      ) : (
+        <SmallCard
+          width={width}
+          firstLine={firstLine}
+          thirdLine={thirdLine}
+          secondLine={secondLine}
+          setProgress={setProgress}
+        />
+      )}
+      {width > 800 && (
+        <div className="subtext" style={{ zIndex: 1 }}>
+          <Link
+            to={"/about"}
+            onClick={() => setProgress(100)}
+            className="subtext-text"
+          >
+            <h2>know more about me</h2>
+          </Link>
+        </div>
+      )}
+      {width > 0 ? (
         <div className="imgs">
           <img
             src={img1}
@@ -193,6 +181,12 @@ const Home = ({ pageTransition, setProgress, width }) => {
         </div>
       ) : (
         <></>
+      )}
+      {width < 400 && (
+        <>
+          <br />
+          <br />
+        </>
       )}
     </motion.div>
   );

@@ -35,6 +35,12 @@ const Navbar = (props) => {
                 ? "activeItem Item homeLi"
                 : "Item homeLi"
             }
+              style={{
+                color:
+                  location.pathname === "/"
+                    ? "var(--primColor)"
+                    : "#ccc"
+              }}
             onClick={(e) => props.setProgress(100)}
           >
             Home
@@ -47,6 +53,12 @@ const Navbar = (props) => {
                 ? "activeItem Item whoAmILi"
                 : "Item whoAmILi"
             }
+              style={{
+                color:
+                  location.pathname === "/about"
+                    ? "var(--primColor)"
+                    : "#ccc"
+              }}
             onClick={(e) => props.setProgress(100)}
           >
             About
@@ -59,6 +71,12 @@ const Navbar = (props) => {
                 ? "activeItem Item projectsLi"
                 : "Item projectsLi"
             }
+              style={{
+                color:
+                  location.pathname === "/projects"
+                    ? "var(--primColor)"
+                    : "#ccc"
+              }}
             onClick={(e) => props.setProgress(100)}
           >
             Projects
@@ -71,6 +89,12 @@ const Navbar = (props) => {
                 ? "activeItem Item resumeLi"
                 : "Item resumeLi"
             }
+              style={{
+                color:
+                  location.pathname === "/resume"
+                    ? "var(--primColor)"
+                    : "#ccc"
+              }}
             onClick={(e) => props.setProgress(100)}
           >
             Resume
@@ -83,6 +107,12 @@ const Navbar = (props) => {
                 ? "activeItem Item contactLi"
                 : "Item contactLi"
             }
+              style={{
+                color:
+                  location.pathname === "/contact"
+                    ? "var(--primColor)"
+                    : "#ccc"
+              }}
             onClick={(e) => props.setProgress(100)}
           >
             Contact

@@ -1,46 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import { RxHamburgerMenu } from "react-icons/rx";
 import "./smallNav.css";
 
 const SmallNavbar = (props) => {
   const location = useLocation();
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const buttonRef = useRef(null);
 
   const handleNavCollapse = () => {
     setIsNavCollapsed(!isNavCollapsed);
   };
 
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.addEventListener("click", handleNavCollapse);
+    }
+  }, []);
+
   const closeNavMenu = () => {
     setIsNavCollapsed(true);
   };
-
   return (
     <nav
-      className="navbar navbar-expand-lg bg-body-tertiary nav-sm-screen"
+      className="navbar  bg-body-tertiary w-100 navbar-expand-lg nav-sm-screen"
       style={{
         width: "88%",
-        backgroundColor: "#fff",
+        background: "transparent",
+        color: "#fff",
         margin: "auto",
         zIndex: "1000",
-        position: "absolute",
       }}
     >
-      <div className="container-fluid w-100">
+      <div className="container-fluid">
         <button
-          className="navbar-toggler"
+          ref={buttonRef}
+          className="navbar-toggler "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded={!isNavCollapsed ? true : false}
+          aria-expanded="false"
           aria-label="Toggle navigation"
-          onClick={handleNavCollapse}
+          style={{
+            width: "50px",
+            height: "50px",
+            backgroundColor: "#fff",
+          }}
         >
-          <span className="navbar-toggler-icon"></span>
+          <RxHamburgerMenu
+            style={{
+              color: "#000",
+              backgroundColor: "#fff",
+              zIndex: "5",
+              fontSize: "1.5rem",
+            }}
+          />
         </button>
         <div
-          className={`collapse navbar-collapse ${isNavCollapsed ? "" : "show"}`}
+          className={`collapse  navbar-collapse ${
+            isNavCollapsed ? "collapse" : "show"
+          }`}
           id="navbarSupportedContent"
         >
           <ul className="nav-ul navbar-nav me-auto mb-2 mb-lg-0 w-100">

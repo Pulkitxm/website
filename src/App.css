@@ -26,12 +26,22 @@ body {
 @media (width>1400px) {
   #root {
     background-color: #fff;
-    width: 95%;
-    height: 90%;
+    width: 97%;
+    height: 95%;
     box-shadow: 5px 5px 50px #0000005e;
     display: flex;
     border-radius: 1em;
     padding: 2em !important;
+  }
+
+  .contentofpulkit {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    overflow: hidden;
   }
 }
 
@@ -40,9 +50,16 @@ body {
     background-color: #fff;
     width: 100%;
     height: 100%;
+    font-size: 1em !important;
+  }
+
+  .contentofpulkit {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     display: flex;
-    border-radius: 1em;
-    padding: 2em !important;
+    flex-direction: column;
+    overflow: hidden;
   }
 }
 
@@ -53,40 +70,6 @@ a {
 .Typewriter > p {
   color: green;
   display: inline;
-}
-
-@media (width<1400px) {
-  .contentofpulkit {
-    margin-top: 5em;
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1em;
-    overflow: hidden;
-  }
-  .projects {
-    width: 80%;
-  }
-  .home,
-  .resume,
-  .contact,
-  .projects,
-  .about {
-    height: 88% !important;
-    border-radius: 1em !important;
-  }
-}
-
-.contentofpulkit {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  border-radius: 1em;
-  overflow: hidden;
 }
 
 a {
