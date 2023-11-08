@@ -140,7 +140,6 @@ const Contact = ({ pageTransition, width }) => {
             </button>
           )}
         </div>
-      </form>
       <div className="social-handles">
         <a href={codepen_url} target="_blank" rel="noopener noreferrer">
           <FaCodepen className={"codepen"} />
@@ -164,6 +163,7 @@ const Contact = ({ pageTransition, width }) => {
           <FaYoutube className={"youtube"} />
         </a>
       </div>
+      </form>
       {width < 400 && (
         <>
           <br />
