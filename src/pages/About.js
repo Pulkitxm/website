@@ -3,8 +3,7 @@ import './pages.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const About = ({pageTransition,setProgress,width}) => {
-
+const About = ({ pageTransition, width, toploadAnimate }) => {
   return (
     <motion.div
       className="about"
@@ -52,8 +51,8 @@ const About = ({pageTransition,setProgress,width}) => {
           Thank you for visiting my website, and I hope you find my work
           inspiring! If you have any questions or just want to say hello, don't
           hesitate to{" "}
-          <Link to="/contact" onClick={() => setProgress(100)}>
-            get in touch
+          <Link to="/contact" onClick={() => toploadAnimate()}>
+            <u>get in touch</u>
           </Link>
           .
         </p>

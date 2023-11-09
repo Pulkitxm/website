@@ -28,59 +28,54 @@ const AnimatedRoutes = (props) => {
               <Home
                 width={props.width}
                 isloaded={props.isloaded}
-                setProgress={props.setProgress}
                 pageTransition={pageTransition}
+                toploadAnimate={props.toploadAnimate}
+                darkMode={props.darkMode}
               />
             }
           />
           <Route
             path="/about"
             element={
-              <About
-                setProgress={props.setProgress}
-                width={props.width}
-                pageTransition={pageTransition}
+              <About width={props.width} pageTransition={pageTransition}
+                toploadAnimate={props.toploadAnimate}
+                darkMode={props.darkMode}
               />
             }
           />
           <Route
             path="/contact"
             element={
-              <Contact
-                setProgress={props.setProgress}
-                width={props.width}
-                pageTransition={pageTransition}
+              <Contact width={props.width} pageTransition={pageTransition}
+                toploadAnimate={props.toploadAnimate}
+                darkMode={props.darkMode}
               />
             }
           />
           <Route
             path="/projects"
             element={
-              <Projects
-                setProgress={props.setProgress}
-                pageTransition={pageTransition}
-                width={props.width}
+              <Projects pageTransition={pageTransition} width={props.width}
+                toploadAnimate={props.toploadAnimate}
+                darkMode={props.darkMode}
               />
             }
           />
           <Route
             path="/resume"
             element={
-              <Resume
-                width={props.width}
-                setProgress={props.setProgress}
-                pageTransition={pageTransition}
+              <Resume width={props.width} pageTransition={pageTransition}
+                toploadAnimate={props.toploadAnimate}
+                darkMode={props.darkMode}
               />
             }
           />
           <Route
             path="/*"
-            element={
-              <NotFound
-                setProgress={props.setProgress}
-                pageTransition={pageTransition}
-              />
-            }
+            element={<NotFound pageTransition={pageTransition} 
+              toploadAnimate={props.toploadAnimate}
+              darkMode={props.darkMode}
+          />}
           />
         </Routes>
       </AnimatePresence>

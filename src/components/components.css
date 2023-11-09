@@ -16,7 +16,7 @@
   background-size: cover;
 }
 
-.nav {
+.lightNav {
   user-select: none;
   color: #000000;
   height: 100%;
@@ -30,24 +30,36 @@
   border-radius: 1em;
 }
 
-.nav:hover {
+.hoveredNav {
   transform: translateX(5px);
   transition: 0.5s;
   box-shadow: 5px 0 40px 0 var(--accentcolor);
 }
 
-.nav h1 {
+.lightNav h1 {
   user-select: none;
   font-weight: 900 !important;
   font-family: "Cedarville Cursive" !important;
 }
 
+.darkToggle{
+  transition: .2s;
+}
+
+.darkToggle:hover{
+  box-shadow: 2px 2px 15px var(--primColor);
+}
+.darkToggle:active{
+  transform: scale(.9);
+}
+
 #name span {
   user-select: none;
   font-family: "Cedarville Cursive" !important;
+  text-shadow: none;
 }
 
-.nav ul {
+.lightNav ul {
   list-style: none;
   grid-row: 2/21 !important;
   height: 100%;
@@ -58,7 +70,62 @@
   flex-direction: column;
 }
 
-.nav a h1 span {
+.lightNav a h1 span {
+  display: block;
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--primColor) !important;
+}
+
+.darkNav {
+  user-select: none;
+  color: #000000;
+  height: 100%;
+  width: 350px;
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  grid-template-rows: repeat(20, 1fr) !important;
+  padding: 0.5rem;
+  transition: 0.2s;
+  z-index: 1000;
+  border-radius: 1em;
+}
+
+.lightNav:hover {
+  transform: translateX(5px);
+  transition: 0.5s;
+  box-shadow: 5px 0 40px 0 var(--accentcolor);
+}
+
+.darkNav:hover {
+  transform: translateX(5px);
+  transition: 0.5s;
+  box-shadow: 5px 0 40px 0 #70707021;
+}
+
+.darkNav h1 {
+  user-select: none;
+  font-weight: 900 !important;
+  font-family: "Cedarville Cursive" !important;
+}
+
+#name span {
+  user-select: none;
+  font-family: "Cedarville Cursive" !important;
+}
+
+.darkNav ul {
+  list-style: none;
+  grid-row: 2/21 !important;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.darkNav a h1 span {
   display: block;
   text-align: center;
   font-size: 1.5em;
@@ -106,7 +173,7 @@ ul a:hover {
     left: 0;
     width: 0%;
     overflow: hidden;
-    transition: all 0.2s;
+    transition: all 0.5s;
   }
   .homeLi:hover:before {
     width: 100%;

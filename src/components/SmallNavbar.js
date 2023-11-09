@@ -23,10 +23,9 @@ const SmallNavbar = (props) => {
   };
   return (
     <nav
-      className="navbar  bg-body-tertiary w-100 navbar-expand-lg nav-sm-screen"
+      className={`navbar navbar-expand-lg navbar-light ${props.darkMode ? "dark-sm-nav" : "light-sm-nav"}`}
       style={{
         width: "88%",
-        background: "transparent",
         color: "#fff",
         margin: "auto",
         zIndex: "1000",
@@ -64,18 +63,37 @@ const SmallNavbar = (props) => {
           id="navbarSupportedContent"
         >
           <ul className="nav-ul navbar-nav me-auto mb-2 mb-lg-0 w-100">
-            <Link draggable="false" to="/" onClick={closeNavMenu}>
+            <Link
+              draggable="false"
+              to="/"
+              onClick={() => {
+                closeNavMenu();
+                props.toploadAnimate();
+              }}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+              }}
+            >
               <li
                 className={
                   location.pathname === "/"
-                    ? "activeItem Item homeLi"
-                    : "Item homeLi"
+                    ? "activeItem Item whoAmILi"
+                    : "Item whoAmILi"
                 }
               >
                 Home
               </li>
             </Link>
-            <Link draggable="false" to="/about" onClick={closeNavMenu}>
+            <Link
+              draggable="false"
+              to="/about"
+              onClick={() => {
+                closeNavMenu();
+                props.toploadAnimate();
+              }}
+            >
               <li
                 className={
                   location.pathname === "/about"
@@ -86,7 +104,14 @@ const SmallNavbar = (props) => {
                 About
               </li>
             </Link>
-            <Link draggable="false" to="/projects" onClick={closeNavMenu}>
+            <Link
+              draggable="false"
+              to="/projects"
+              onClick={() => {
+                closeNavMenu();
+                props.toploadAnimate();
+              }}
+            >
               <li
                 className={
                   location.pathname === "/projects"
@@ -97,7 +122,14 @@ const SmallNavbar = (props) => {
                 Projects
               </li>
             </Link>
-            <Link draggable="false" to="/resume" onClick={closeNavMenu}>
+            <Link
+              draggable="false"
+              to="/resume"
+              onClick={() => {
+                closeNavMenu();
+                props.toploadAnimate();
+              }}
+            >
               <li
                 className={
                   location.pathname === "/resume"
@@ -108,7 +140,14 @@ const SmallNavbar = (props) => {
                 Resume
               </li>
             </Link>
-            <Link draggable="false" to="/contact" onClick={closeNavMenu}>
+            <Link
+              draggable="false"
+              to="/contact"
+              onClick={() => {
+                closeNavMenu();
+                props.toploadAnimate();
+              }}
+            >
               <li
                 className={
                   location.pathname === "/contact"
@@ -119,6 +158,49 @@ const SmallNavbar = (props) => {
                 Contact
               </li>
             </Link>
+            <li>
+              <h1>
+                <input
+                  type="checkbox"
+                  className="btn-check"
+                  id="btn-check-outlined"
+                  autoComplete="off"
+                />
+                <div
+                  className="center"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignContent: "center",
+                  }}
+                >
+                  <div class="form-check form-switch">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                      onClick={() => {
+                        const currMode = !props.darkMode;
+                        props.setDarkMode(currMode);
+                        window.localStorage.setItem("darkMode", currMode);
+                      }}
+                    />
+                    <label
+                      class="form-check-label"
+                      htmlFor="flexSwitchCheckDefault"
+                      style={{
+                        fontWeight: "900",
+                        textShadow: "none",
+                        color: props.darkMode ? "#272727" : "#fff",
+                      }}
+                    >
+                      Dark Mode
+                    </label>
+                  </div>
+                </div>
+              </h1>
+            </li>
           </ul>
         </div>
       </div>

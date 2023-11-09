@@ -6,14 +6,22 @@
   align-items: center;
 }
 
+.lightTypewriter,
+.darkTypewriter{
+  display: inline;
+}
+.darkTypewriter span {
+  color: #fff !important;
+}
+
 .orange {
-  width: 100px !important;
-  height: 100px !important;
-  background-color: var(--primColor) !important;
-  border-radius: 30px !important;
-  position: fixed !important;
-  z-index: -3 !important;
-  transform: translate(-345%, -120%) !important;
+  width: 100px ;
+  height: 100px ;
+  background-color: var(--primColor) ;
+  border-radius: 30px ;
+  position: fixed ;
+  z-index: -3 ;
+  transform: translate(-345%, -120%) ;
 }
 @import url("https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@1,700&display=swap");
 .card {
@@ -40,9 +48,9 @@
 
 .subtext-text ,
 .subtext-text-sm {
-  font-size:2em !important;
+  font-size:2em ;
   font-family: "Sometype Mono", monospace;
-  color: grey !important;
+  color: grey ;
 }
 
 @keyframes cardanimate {

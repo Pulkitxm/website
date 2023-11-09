@@ -4,9 +4,6 @@ import './pages.css';
 import resumePdf from "../assets/resume.pdf";
 
 import { motion } from 'framer-motion';
-import github from '../assets/icons/github.png';
-import linkedin from '../assets/icons/linkedin.png';
-import newtab from '../assets/newtab.png'
 const github_url = 'https://github.com/Pulkitxm';
 const linkedin_url = 'http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8';
 

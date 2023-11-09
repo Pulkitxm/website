@@ -4,7 +4,7 @@ import Typewriter from "./Typing";
 import "./SmallCard.css";
 import { Link } from "react-router-dom";
 
-const Card = ({ width, setProgress }) => {
+const Card = ({ width, toploadAnimate }) => {
   const [firstline, setfirstline] = useState(false);
   const [secondLine, setsecondLine] = useState(false);
   const [thirdLine, setthirdLine] = useState(false);
@@ -33,46 +33,56 @@ const Card = ({ width, setProgress }) => {
     <div className="smContainer">
       <div className="card-sm">
         <p>
-          <span className="spani">
+          <span className="spani" id='white'>
             {"01"} <span className="spanarr"> {"<"}</span>
           </span>
-          {firstline && <Typewriter text="Hi! I am Pulkit" speed={50} />}
+          <div id="white" style={{ display: "inline" }}>
+            {firstline && <Typewriter text="Hi! I am Pulkit" speed={50} />}
+          </div>
           <span className="spani">
             <span className="spanarr"> {">"}</span>
           </span>
         </p>
         <p>
-          <span className="spani">
+          <span className="spani" id='white'>
             {"02"} <span className="spanarr"> {"<"}</span>
           </span>
-          {secondLine && <Typewriter text="I am a Full" speed={50} />}
+          <div id="white" style={{ display: "inline" }}>
+            {secondLine && <Typewriter text="I am a Full" speed={50} />}
+          </div>
           <span className="spani">
             <span className="spanarr"> {">"}</span>
           </span>
         </p>
         <p>
-          <span className="spani">
+          <span className="spani" id='white'>
             {"03"} <span className="spanarr"> {"<"}</span>
           </span>
-          {thirdLine && <Typewriter text="Stack Developer," speed={50} />}
+          <div id="white" style={{ display: "inline" }}>
+            {thirdLine && <Typewriter text="Stack Developer," speed={50} />}
+          </div>
           <span className="spani">
             <span className="spanarr"> {">"}</span>
           </span>
         </p>
         <p>
-          <span className="spani">
+          <span className="spani" id='white'>
             {"04"} <span className="spanarr"> {"<"}</span>
           </span>
-          {fourthline && <Typewriter text="Video Editor and" speed={50} />}
+          <div id="white" style={{ display: "inline" }}>
+            {fourthline && <Typewriter text="Video Editor and" speed={50} />}
+          </div>
           <span className="spani">
             <span className="spanarr"> {">"}</span>
           </span>
         </p>
         <p>
-          <span className="spani">
+          <span className="spani" id='white'>
             {"05"} <span className="spanarr"> {"<"}</span>
           </span>
-          {fifthline && <Typewriter text="Tech. Enthusiast" speed={50} />}
+          <div id="white" style={{ display: "inline" }}>
+            {fifthline && <Typewriter text="Tech. Enthusiast" speed={50} />}
+          </div>
           <span className="spani">
             <span className="spanarr"> {">"}</span>
           </span>
@@ -80,11 +90,14 @@ const Card = ({ width, setProgress }) => {
       </div>
       <div className="subtext-sm" style={{ zIndex: 1 }}>
         <Link
+          draggable="false"
           to={"/about"}
-          onClick={() => setProgress(100)}
+          onClick={() => toploadAnimate()}
           className="subtext-text-sm"
         >
-          <h2>know more about me</h2>
+          <div id="white" style={{ display: "inline" }}>
+            <h2>know more about me</h2>
+          </div>
         </Link>
       </div>
     </div>

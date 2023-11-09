@@ -9,3 +9,27 @@
     margin: 0;
     padding: 0;
 }
+.dark-sm-nav{
+    background-color: #5e5e5e !important;
+    width: 100% !important;
+    color: #fff !important;
+}
+.light-sm-nav{
+    width: 100% !important;
+    color: #fff !important;
+    background-color: #d4d4d4 !important;
+}
+.dark-sm-nav div ul li{
+    color: #fff !important;
+}
+.light-sm-nav div ul li{
+    display: inline;
+    color: #000 !important;
+}
+
+.collapse.nav-ul{
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    
+}

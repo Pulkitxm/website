@@ -4,22 +4,23 @@ import "./pages.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-// Import the images
-import img1 from "../assets/logos/bootstrap.png";
-import img2 from "../assets/logos/c.png";
-import img3 from "../assets/logos/css.png";
-import img4 from "../assets/logos/html.png";
-import img5 from "../assets/logos/java.png";
-import img6 from "../assets/logos/js.png";
-import img7 from "../assets/logos/premeiere.png";
-import img8 from "../assets/logos/py.png";
-import img9 from "../assets/logos/react.png";
+import { SiAdobepremierepro } from "react-icons/si";
+import {
+  FaBootstrap,
+  FaComputer,
+  FaCss3Alt,
+  FaHtml5,
+  FaJava,
+  FaNode,
+  FaPython,
+  FaReacteurope,
+} from "react-icons/fa6";
 
 import LargeCard from "../components/LargeCard";
 import SmallCard from "../components/SmallCard";
 
-const Home = ({ pageTransition, setProgress, width }) => {
-  const imageRefs = useRef([]);
+const Home = ({ pageTransition, width, toploadAnimate, darkMode }) => {
+  const svgRefs = useRef([]);
 
   const [firstLine, setFirstLine] = useState(false);
   const [secondLine, setSecondLine] = useState(false);
@@ -46,16 +47,17 @@ const Home = ({ pageTransition, setProgress, width }) => {
   }, []);
 
   function initializeInitialPositions() {
-    imageRefs.current = document.querySelectorAll(".img-dingle");
+    svgRefs.current = document.querySelectorAll(".img-dingle");
   }
 
   function parallax(e) {
-    imageRefs.current.forEach((move) => {
-      const moving_value = move.getAttribute("data-value");
-      const x = ((e.clientX - move.offsetLeft) * moving_value) / 900;
-      const y = ((e.clientY - move.offsetTop) * moving_value) / 900;
+    svgRefs.current.forEach((svg) => {
+      const movingValue = svg.getAttribute("data-value");
+      const x = (e.clientX * movingValue) / 900;
+      const y = (e.clientY * movingValue) / 900;
 
-      move.style.transform = `translate(${x}px , ${y}px)`;
+      // Update the style of the SVG component to apply the parallax effect
+      svg.style.transform = `translate(${x}px, ${y}px)`;
     });
   }
 
@@ -83,6 +85,7 @@ const Home = ({ pageTransition, setProgress, width }) => {
           firstLine={firstLine}
           thirdLine={thirdLine}
           secondLine={secondLine}
+          darkMode={darkMode}
         />
       ) : (
         <SmallCard
@@ -90,14 +93,14 @@ const Home = ({ pageTransition, setProgress, width }) => {
           firstLine={firstLine}
           thirdLine={thirdLine}
           secondLine={secondLine}
-          setProgress={setProgress}
+          toploadAnimate={toploadAnimate}
         />
       )}
       {width > 800 && (
         <div className="subtext" style={{ zIndex: 1 }}>
           <Link
-            to={"/about"}
-            onClick={() => setProgress(100)}
+            to="/about"
+            onClick={() => toploadAnimate()}
             className="subtext-text"
           >
             <h2>know more about me</h2>
@@ -106,77 +109,95 @@ const Home = ({ pageTransition, setProgress, width }) => {
       )}
       {width > 0 ? (
         <div className="imgs">
-          <img
-            src={img1}
-            draggable="false"
+          <SiAdobepremierepro
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="-4"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img2}
-            draggable="false"
+          <FaBootstrap
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="6"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img3}
-            draggable="false"
+          <FaComputer
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="4"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img4}
-            draggable="false"
+          <FaCss3Alt
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="-6"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img5}
-            draggable="false"
+          <FaHtml5
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="8"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img6}
-            draggable="false"
+          <FaJava
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="-4"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img7}
-            draggable="false"
+          <FaNode
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="5"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img8}
-            draggable="false"
+          <FaPython
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="-9"
-            alt=""
-            style={{ userSelect: "none" }}
           />
-          <img
-            src={img9}
-            draggable="false"
+          <FaReacteurope
+            ref={(svgRef) => svgRefs.current.push(svgRef)}
             className="img-dingle"
+            style={{
+              color: !darkMode ? "#000" : "#fff",
+              height: "50px",
+              width: "50px",
+            }}
             data-value="-5"
-            alt=""
-            style={{ userSelect: "none" }}
           />
         </div>
       ) : (

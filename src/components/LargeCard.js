@@ -3,37 +3,53 @@ import Typewriter from "./Typing";
 
 import "./LargeCard.css";
 
-const Card = ({firstLine,thirdLine,width,secondLine}) => {
+const Card = ({ firstLine, thirdLine, width, secondLine, darkMode }) => {
+  console.log(darkMode);
   return (
     <div
       className="card"
+      style={{
+        backgroundColor: darkMode ? "rgb(76 76 76)" : "#fff",
+      }}
     >
       <p>
-        <span className="spani">
+        <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
           {"01"} <span className="spanarr"> {"<"}</span>
         </span>
-        {firstLine && <Typewriter text="Hi! I am Pulkit" speed={50} />}
-        <span className="spani">
-          <span className="spanarr"> {">"}</span>
-        </span>
-      </p>
-      <p>
-        <span className="spani">
-          {"02"} <span className="spanarr"> {"<"}</span>
-        </span>
-        {secondLine && (
-          <Typewriter text="I am a Full Stack Developer," speed={50} />
+        {firstLine && (
+          <div className={`${darkMode ? "darkTypewriter" : "lightTypewriter"}`}>
+            <Typewriter text="Hi! I am Pulkit" speed={50} />
+          </div>
         )}
         <span className="spani">
           <span className="spanarr"> {">"}</span>
         </span>
       </p>
       <p>
+        <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
+          {"02"} <span className="spanarr"> {"<"}</span>
+        </span>
+        {secondLine && (
+          <div className={`${darkMode ? "darkTypewriter" : "lightTypewriter"}`}>
+            <Typewriter
+              text="I am a Full Stack Developer,"
+              style={{ color: darkMode ? "#fff" : "#000" }}
+              speed={50}
+            />
+          </div>
+        )}
         <span className="spani">
+          <span className="spanarr"> {">"}</span>
+        </span>
+      </p>
+      <p>
+        <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
           {"03"} <span className="spanarr"> {"<"}</span>
         </span>
         {thirdLine && (
-          <Typewriter text="Video Editor and Tech. Enthusiast" speed={50} />
+          <div className={`${darkMode ? "darkTypewriter" : "lightTypewriter"}`}>
+            <Typewriter text="Video Editor and Tech. Enthusiast" speed={50} />
+          </div>
         )}
         <span className="spani">
           <span className="spanarr"> {">"}</span>
