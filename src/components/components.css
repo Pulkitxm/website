@@ -42,15 +42,15 @@
   font-family: "Cedarville Cursive" !important;
 }
 
-.darkToggle{
-  transition: .2s;
+.darkToggle {
+  transition: 0.2s;
 }
 
-.darkToggle:hover{
+.darkToggle:hover {
   box-shadow: 2px 2px 15px var(--primColor);
 }
-.darkToggle:active{
-  transform: scale(.9);
+.darkToggle:active {
+  transform: scale(0.9);
 }
 
 #name span {

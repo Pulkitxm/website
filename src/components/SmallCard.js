@@ -33,7 +33,7 @@ const Card = ({ width, toploadAnimate }) => {
     <div className="smContainer">
       <div className="card-sm">
         <p>
-          <span className="spani" id='white'>
+          <span className="spani" id="white">
             {"01"} <span className="spanarr"> {"<"}</span>
           </span>
           <div id="white" style={{ display: "inline" }}>
@@ -44,7 +44,7 @@ const Card = ({ width, toploadAnimate }) => {
           </span>
         </p>
         <p>
-          <span className="spani" id='white'>
+          <span className="spani" id="white">
             {"02"} <span className="spanarr"> {"<"}</span>
           </span>
           <div id="white" style={{ display: "inline" }}>
@@ -55,7 +55,7 @@ const Card = ({ width, toploadAnimate }) => {
           </span>
         </p>
         <p>
-          <span className="spani" id='white'>
+          <span className="spani" id="white">
             {"03"} <span className="spanarr"> {"<"}</span>
           </span>
           <div id="white" style={{ display: "inline" }}>
@@ -66,7 +66,7 @@ const Card = ({ width, toploadAnimate }) => {
           </span>
         </p>
         <p>
-          <span className="spani" id='white'>
+          <span className="spani" id="white">
             {"04"} <span className="spanarr"> {"<"}</span>
           </span>
           <div id="white" style={{ display: "inline" }}>
@@ -77,7 +77,7 @@ const Card = ({ width, toploadAnimate }) => {
           </span>
         </p>
         <p>
-          <span className="spani" id='white'>
+          <span className="spani" id="white">
             {"05"} <span className="spanarr"> {"<"}</span>
           </span>
           <div id="white" style={{ display: "inline" }}>

@@ -189,7 +189,6 @@ const projects = [
 ];
 
 const Projects = ({ pageTransition, width, darkMode }) => {
-  
   const [showgenre, setshowgenre] = useState("all");
 
   const genres = [
@@ -270,11 +269,13 @@ const Projects = ({ pageTransition, width, darkMode }) => {
           height: "100%",
         }}
       >
-        <div className="top"
+        <div
+          className="top"
           style={{
             fontSize: width < 400 ? "1.5rem" : "2rem",
             color: darkMode ? "#fff" : "#000",
-        }}>
+          }}
+        >
           Projects I made &nbsp; {!darkMode && <img src={star} alt="star" />}
         </div>
 

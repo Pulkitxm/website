@@ -12,8 +12,8 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
-     if (window.localStorage.darkMode && window.localStorage.darkMode == "true")
-       setDarkMode(true);
+    if (window.localStorage.darkMode && window.localStorage.darkMode == "true")
+      setDarkMode(true);
   }, []);
   useEffect(() => {
     let root = document.getElementById("root");
@@ -68,7 +68,7 @@ const App = () => {
         }}
       >
         <LoadingBar
-          color={width < 1400 ? "red" : "#fff"}
+          color={width < 1400 ? "red" : "#c8c8c8"}
           progress={progress}
           height={width > 1400 ? 8 : 4}
           onLoaderFinished={() => setProgress(0)}

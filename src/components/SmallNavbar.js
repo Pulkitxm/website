@@ -23,7 +23,9 @@ const SmallNavbar = (props) => {
   };
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light ${props.darkMode ? "dark-sm-nav" : "light-sm-nav"}`}
+      className={`navbar navbar-expand-lg navbar-light ${
+        props.darkMode ? "dark-sm-nav" : "light-sm-nav"
+      }`}
       style={{
         width: "88%",
         color: "#fff",

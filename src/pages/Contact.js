@@ -140,29 +140,29 @@ const Contact = ({ pageTransition, width }) => {
             </button>
           )}
         </div>
-      <div className="social-handles">
-        <a href={codepen_url} target="_blank" rel="noopener noreferrer">
-          <FaCodepen className={"codepen"} />
-        </a>
-        <a href={facebook_url} target="_blank" rel="noopener noreferrer">
-          <FaFacebookF className={"facebook"} />
-        </a>
-        <a href={github_url} target="_blank" rel="noopener noreferrer">
-          <FaGithub className={"github"} />
-        </a>
-        <a href={gmail_url} target="_blank" rel="noopener noreferrer">
-          <AiOutlineMail className={"gmail"} />
-        </a>
-        <a href={instagram_url} target="_blank" rel="noopener noreferrer">
-          <FaInstagram className={"instagram"} />
-        </a>
-        <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
-          <FaLinkedinIn className={"linkedin"} />
-        </a>
-        <a href={youtube_url} target="_blank" rel="noopener noreferrer">
-          <FaYoutube className={"youtube"} />
-        </a>
-      </div>
+        <div className="social-handles">
+          <a href={codepen_url} target="_blank" rel="noopener noreferrer">
+            <FaCodepen className={"codepen"} />
+          </a>
+          <a href={facebook_url} target="_blank" rel="noopener noreferrer">
+            <FaFacebookF className={"facebook"} />
+          </a>
+          <a href={github_url} target="_blank" rel="noopener noreferrer">
+            <FaGithub className={"github"} />
+          </a>
+          <a href={gmail_url} target="_blank" rel="noopener noreferrer">
+            <AiOutlineMail className={"gmail"} />
+          </a>
+          <a href={instagram_url} target="_blank" rel="noopener noreferrer">
+            <FaInstagram className={"instagram"} />
+          </a>
+          <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
+            <FaLinkedinIn className={"linkedin"} />
+          </a>
+          <a href={youtube_url} target="_blank" rel="noopener noreferrer">
+            <FaYoutube className={"youtube"} />
+          </a>
+        </div>
       </form>
       {width < 400 && (
         <>

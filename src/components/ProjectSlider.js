@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 
 import "./ProjectSlider.css";
 
-const ProjectSlider = ({ projects}) => {
+const ProjectSlider = ({ projects }) => {
   const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 

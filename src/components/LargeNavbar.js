@@ -116,7 +116,7 @@ const Navbar = (props) => {
           id="btn-check-outlined"
           autoComplete="off"
         />
-        <div className="center" style={{textAlign:'center'}}>
+        <div className="center" style={{ textAlign: "center" }}>
           <label
             className="btn btn-outline-secondary darkToggle"
             htmlFor="btn-check-outlined"

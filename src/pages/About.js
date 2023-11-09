@@ -1,7 +1,7 @@
-import React from 'react';
-import './pages.css';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from "react";
+import "./pages.css";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const About = ({ pageTransition, width, toploadAnimate }) => {
   return (
