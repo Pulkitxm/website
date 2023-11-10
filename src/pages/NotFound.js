@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import _404 from "../assets/404.gif";
 const Home = ({ pageTransition }) => {
+  useEffect(() => {
+    document.title = "Pulkit | Invalid Request";
+  },[])
   return (
     <motion.div
       className="notfound"

@@ -28,6 +28,8 @@ const AnimatedRoutes = (props) => {
           path="/"
           element={
             <Home
+              baseTitle={props.baseTitle}
+              setTitle={props.setTitle}
               width={props.width}
               isloaded={props.isloaded}
               pageTransition={pageTransition}
@@ -40,6 +42,8 @@ const AnimatedRoutes = (props) => {
           path="/about"
           element={
             <About
+              baseTitle={props.baseTitle}
+              setTitle={props.setTitle}
               width={props.width}
               pageTransition={pageTransition}
               toploadAnimate={props.toploadAnimate}
@@ -51,6 +55,8 @@ const AnimatedRoutes = (props) => {
           path="/contact"
           element={
             <Contact
+              baseTitle={props.baseTitle}
+              setTitle={props.setTitle}
               width={props.width}
               pageTransition={pageTransition}
               toploadAnimate={props.toploadAnimate}
@@ -63,6 +69,8 @@ const AnimatedRoutes = (props) => {
           element={
             <Projects
               pageTransition={pageTransition}
+                baseTitle={props.baseTitle}
+                setTitle={props.setTitle}
               width={props.width}
               toploadAnimate={props.toploadAnimate}
               darkMode={props.darkMode}
@@ -74,6 +82,8 @@ const AnimatedRoutes = (props) => {
           element={
             <Projects
               pageTransition={pageTransition}
+                baseTitle={props.baseTitle}
+                setTitle={props.setTitle}
               width={props.width}
               toploadAnimate={props.toploadAnimate}
               darkMode={props.darkMode}
@@ -84,6 +94,8 @@ const AnimatedRoutes = (props) => {
           path="/resume"
           element={
             <Resume
+              baseTitle={props.baseTitle}
+              setTitle={props.setTitle}
               width={props.width}
               pageTransition={pageTransition}
               toploadAnimate={props.toploadAnimate}

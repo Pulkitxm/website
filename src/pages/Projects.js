@@ -203,7 +203,7 @@ const projects = [
   },
 ];
 
-const Projects = ({ pageTransition, width, darkMode, toploadAnimate }) => {
+const Projects = ({ pageTransition, width, darkMode, toploadAnimate,baseTitle }) => {
   const [showgenre, setshowgenre] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
@@ -268,11 +268,17 @@ const Projects = ({ pageTransition, width, darkMode, toploadAnimate }) => {
   ];
   useEffect(() => {
     if (!params.id) {
+      document.title = baseTitle + " | Projects";
       setshowgenre("all");
     } else {
       const project = projects.filter((i) => i.id === params.id)[0];
-      if (project) setSingleProject(project);
-      else setSingleProject("error");
+      if (project) {
+        setSingleProject(project);
+        document.title = `${baseTitle} | Project-${project.title}`;
+      }
+      else {
+        setSingleProject("error");
+      }
     }
   }, []);
   if (singleProject === "error") {

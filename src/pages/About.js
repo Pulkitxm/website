@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./pages.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const About = ({ pageTransition, width, toploadAnimate }) => {
+const About = ({
+  pageTransition,
+  width,
+  toploadAnimate,
+  baseTitle,
+}) => {
+  useEffect(() => {
+    document.title = (baseTitle + " | About");
+  }, []);
   return (
     <motion.div
       className="about"

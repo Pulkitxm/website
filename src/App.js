@@ -11,10 +11,15 @@ const App = () => {
   const [progress, setProgress] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
   const [width, setwidth] = useState(window.innerWidth);
+  const baseTitle = 'Pulkit';
+  const [title, setTitle] = useState(baseTitle);
   useEffect(() => {
     if (window.localStorage.darkMode && window.localStorage.darkMode == "true")
       setDarkMode(true);
   }, []);
+  useEffect(() => {
+    window.title = title;
+  }, [title]);
   useEffect(() => {
     let root = document.getElementById("root");
     if (root)
@@ -98,6 +103,8 @@ const App = () => {
             width={width}
             toploadAnimate={toploadAnimate}
             darkMode={darkMode}
+            baseTitle={baseTitle}
+            setTitle={setTitle}
           />
         </div>
       </Router>

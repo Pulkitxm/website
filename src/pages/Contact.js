@@ -10,6 +10,7 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { AiOutlineMail } from "react-icons/ai";
+import { useEffect } from "react";
 
 const Icon = ({ url, Class, path }) => {
   return (
@@ -19,7 +20,7 @@ const Icon = ({ url, Class, path }) => {
   );
 };
 
-const Contact = ({ pageTransition, width }) => {
+const Contact = ({ pageTransition, width ,baseTitle  }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -28,13 +29,16 @@ const Contact = ({ pageTransition, width }) => {
 
   const codepen_url = "https://codepen.io/teckyPulkit";
   const facebook_url = "https://www.facebook.com/Pulkit.fb/";
+  const linkedin_url = "http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8";
+  const youtube_url = "https://www.youtube.com/@CodeWithPulkit";
+  
+  const isFormValid = name && email && subject && message;
+  useEffect(() => {
+    document.title = (baseTitle + " | Contact");
+  }, []);
   const github_url = "https://github.com/Pulkitxm";
   const gmail_url = "mailto:kpulkit15234@gmail.com";
   const instagram_url = "https://www.instagram.com/teckypulkit";
-  const linkedin_url = "http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8";
-  const youtube_url = "https://www.youtube.com/@CodeWithPulkit";
-
-  const isFormValid = name && email && subject && message;
 
   const sendEmail = (e) => {
     e.preventDefault();
