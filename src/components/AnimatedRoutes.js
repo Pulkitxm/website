@@ -13,12 +13,14 @@ import { AnimatePresence } from "framer-motion";
 
 const AnimatedRoutes = (props) => {
   const location = useLocation();
-  const pageTransition = {
-    initial: { filter: "blur(20px)" },
-    animate: { filter: "blur(0px)" },
-    exit: { filter: "blur(20px)" },
-    transition: { duration: 1 },
-  };
+ const pageTransition = {
+   initial: { x: "-100%", opacity: 0 },
+   animate: { x: "0%", opacity: 1 },
+   exit: { x: "100%", opacity: 0 },
+   transition: { duration: 1 },
+ };
+
+
   return (
     <AnimatePresence>
       <Routes key={location.pathname} location={location}>
