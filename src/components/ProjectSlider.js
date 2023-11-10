@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 
 import "./ProjectSlider.css";
 
-const ProjectSlider = ({ projects }) => {
+const ProjectSlider = ({ projects, darkMode, toploadAnimate,seperate }) => {
   const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -24,13 +24,19 @@ const ProjectSlider = ({ projects }) => {
   return (
     <div className="slider">
       <div className="slider-container" ref={sliderRef}>
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            project={project}
-            scrollToNextProject={scrollToNextProject}
-          />
-        ))}
+        {projects.map((project, index) => {
+          return (
+            <ProjectCard
+              key={index}
+              project={project}
+              scrollToNextProject={scrollToNextProject}
+              darkMode={darkMode}
+              toploadAnimate={toploadAnimate}
+              showNext={projects.length > 1}
+              seperate={seperate}
+            />
+          );
+        })}
       </div>
     </div>
   );

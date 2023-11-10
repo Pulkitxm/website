@@ -406,6 +406,9 @@ form #input-submit {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 1em;
   color: #000000;
   font-size: 3em;
   padding: 10px;

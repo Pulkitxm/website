@@ -70,6 +70,17 @@ const AnimatedRoutes = (props) => {
           }
         />
         <Route
+          path="/projects/:id"
+          element={
+            <Projects
+              pageTransition={pageTransition}
+              width={props.width}
+              toploadAnimate={props.toploadAnimate}
+              darkMode={props.darkMode}
+            />
+          }
+        />
+        <Route
           path="/resume"
           element={
             <Resume

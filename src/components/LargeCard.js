@@ -4,7 +4,6 @@ import Typewriter from "./Typing";
 import "./LargeCard.css";
 
 const Card = ({ firstLine, thirdLine, width, secondLine, darkMode }) => {
-  console.log(darkMode);
   return (
     <div
       className="card"
