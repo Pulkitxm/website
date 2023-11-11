@@ -176,7 +176,7 @@ const SmallNavbar = (props) => {
                     alignContent: "center",
                   }}
                 >
-                  <div class="form-check form-switch">
+                  <div className="form-check form-switch">
                     <input
                       className="form-check-input"
                       type="checkbox"
@@ -189,7 +189,7 @@ const SmallNavbar = (props) => {
                       }}
                     />
                     <label
-                      class="form-check-label"
+                      className="form-check-label"
                       htmlFor="flexSwitchCheckDefault"
                       style={{
                         fontWeight: "900",
