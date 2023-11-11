@@ -31,17 +31,17 @@
 .genres ul li button:active {
   transform: scale(0.9);
 }
-#copy{
+#copy {
   background: transparent;
   color: #fff;
   outline: none;
-  border:none;
-  transition: .2s;
+  border: none;
+  transition: 0.2s;
   margin-left: 1em;
 }
-#copy:hover{
+#copy:hover {
   transform: scale(1.2);
 }
-#copy:active{
+#copy:active {
   transform: scale(1);
 }

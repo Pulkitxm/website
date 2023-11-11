@@ -20,7 +20,7 @@ const Icon = ({ url, Class, path }) => {
   );
 };
 
-const Contact = ({ pageTransition, width ,baseTitle  }) => {
+const Contact = ({ pageTransition, width, baseTitle }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -31,10 +31,10 @@ const Contact = ({ pageTransition, width ,baseTitle  }) => {
   const facebook_url = "https://www.facebook.com/Pulkit.fb/";
   const linkedin_url = "http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8";
   const youtube_url = "https://www.youtube.com/@CodeWithPulkit";
-  
+
   const isFormValid = name && email && subject && message;
   useEffect(() => {
-    document.title = (baseTitle + " | Contact");
+    document.title = baseTitle + " | Contact";
   }, []);
   const github_url = "https://github.com/Pulkitxm";
   const gmail_url = "mailto:kpulkit15234@gmail.com";

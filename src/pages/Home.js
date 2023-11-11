@@ -19,7 +19,13 @@ import {
 import LargeCard from "../components/LargeCard";
 import SmallCard from "../components/SmallCard";
 
-const Home = ({ pageTransition, width, toploadAnimate, darkMode ,baseTitle }) => {
+const Home = ({
+  pageTransition,
+  width,
+  toploadAnimate,
+  darkMode,
+  baseTitle,
+}) => {
   const svgRefs = useRef([]);
 
   const [firstLine, setFirstLine] = useState(false);
@@ -45,8 +51,6 @@ const Home = ({ pageTransition, width, toploadAnimate, darkMode ,baseTitle }) =>
     return () => {
       document.removeEventListener("mousemove", parallax);
     };
-      
-      
   }, []);
 
   function initializeInitialPositions() {

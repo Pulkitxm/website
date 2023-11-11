@@ -12,7 +12,7 @@ const ProjectCard = ({
   toploadAnimate,
   showNext,
   seperate,
-  darkMode
+  darkMode,
 }) => {
   const navigate = useNavigate();
   return (

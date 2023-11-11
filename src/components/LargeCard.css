@@ -153,3 +153,7 @@
   grid-row: 5;
   grid-column: 1;
 }
+.views{
+  font-size: .5em;
+  margin-top: .5em;
+}

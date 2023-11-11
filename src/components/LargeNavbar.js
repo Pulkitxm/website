@@ -2,15 +2,29 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./components.css";
 import Typewriter from "./Typing";
-
+import axios from "axios";
 const Navbar = (props) => {
+  const backendBaseUrl =
+    "https://portfolio-backend-ecru-one.vercel.app";
   const [show, setshow] = useState(false);
   const location = useLocation();
+  const [numOfUsers, setNumOfUsers] = useState()
   useState(() => {
     setTimeout(() => {
       setshow(true);
     }, 2000);
   });
+  useEffect(() => {
+    const countUsers = async () => {
+      try {
+        const response = await axios.get(backendBaseUrl + "/api/countUsers");
+        if(response.data.length) setNumOfUsers(response.data.length)
+      } catch (error) {
+        console.error("Error storing user data:", error);
+      }
+    };
+    countUsers();
+  }, []);
   return (
     <div className={`${props.darkMode ? "darkNav" : "lightNav"}`}>
       <Link draggable="false" to="/">
@@ -133,6 +147,18 @@ const Navbar = (props) => {
             }}
           >
             {props.darkMode ? "Dark" : "Light"} Mode
+          </label>
+        </div>
+        <div className="center" style={{ textAlign: "center" }}>
+          <label
+            className="views"
+            style={{
+              color: props.darkMode ? "#fff" : "#000",
+              cursor: "text",
+              backgroundColor: props.darkMode ? "#272727" : "#fff",
+            }}
+          >
+            {numOfUsers && <Typewriter text={`${numOfUsers}+ viewers`} speed={100} />}
           </label>
         </div>
       </h1>

@@ -203,7 +203,13 @@ const projects = [
   },
 ];
 
-const Projects = ({ pageTransition, width, darkMode, toploadAnimate,baseTitle }) => {
+const Projects = ({
+  pageTransition,
+  width,
+  darkMode,
+  toploadAnimate,
+  baseTitle,
+}) => {
   const [showgenre, setshowgenre] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
@@ -275,8 +281,7 @@ const Projects = ({ pageTransition, width, darkMode, toploadAnimate,baseTitle })
       if (project) {
         setSingleProject(project);
         document.title = `${baseTitle} | Project-${project.title}`;
-      }
-      else {
+      } else {
         setSingleProject("error");
       }
     }

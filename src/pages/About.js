@@ -3,14 +3,9 @@ import "./pages.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const About = ({
-  pageTransition,
-  width,
-  toploadAnimate,
-  baseTitle,
-}) => {
+const About = ({ pageTransition, width, toploadAnimate, baseTitle }) => {
   useEffect(() => {
-    document.title = (baseTitle + " | About");
+    document.title = baseTitle + " | About";
   }, []);
   return (
     <motion.div

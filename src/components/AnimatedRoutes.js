@@ -13,13 +13,12 @@ import { AnimatePresence } from "framer-motion";
 
 const AnimatedRoutes = (props) => {
   const location = useLocation();
- const pageTransition = {
-   initial: { x: "-100%", opacity: 0 },
-   animate: { x: "0%", opacity: 1 },
-   exit: { x: "100%", opacity: 0 },
-   transition: { duration: 1 },
- };
-
+  const pageTransition = {
+    initial: { x: "-100%", opacity: 0 },
+    animate: { x: "0%", opacity: 1 },
+    exit: { x: "100%", opacity: 0 },
+    transition: { duration: 1 },
+  };
 
   return (
     <AnimatePresence>
@@ -69,8 +68,8 @@ const AnimatedRoutes = (props) => {
           element={
             <Projects
               pageTransition={pageTransition}
-                baseTitle={props.baseTitle}
-                setTitle={props.setTitle}
+              baseTitle={props.baseTitle}
+              setTitle={props.setTitle}
               width={props.width}
               toploadAnimate={props.toploadAnimate}
               darkMode={props.darkMode}
@@ -82,8 +81,8 @@ const AnimatedRoutes = (props) => {
           element={
             <Projects
               pageTransition={pageTransition}
-                baseTitle={props.baseTitle}
-                setTitle={props.setTitle}
+              baseTitle={props.baseTitle}
+              setTitle={props.setTitle}
               width={props.width}
               toploadAnimate={props.toploadAnimate}
               darkMode={props.darkMode}

@@ -8,9 +8,9 @@ const github_url = "https://github.com/Pulkitxm";
 const linkedin_url = "http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8";
 
 const Resume = (props) => {
-  useEffect(() => { 
-        document.title = `${props.baseTitle} | Resume`;
-  }, [])
+  useEffect(() => {
+    document.title = `${props.baseTitle} | Resume`;
+  }, []);
   return (
     <motion.div
       className="resume"
