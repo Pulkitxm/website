@@ -137,6 +137,8 @@ const App = () => {
       {IP}
       <br/>
       {referedFrom}
+      <br/>
+      {setProgress}
       <Router
         style={{
           oveflowX: "hidden",
