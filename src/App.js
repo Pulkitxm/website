@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import LargeNavbar from "./components/LargeNavbar";
 import SmallNavbar from "./components/SmallNavbar";
+import emailjs from "emailjs-com"; // Import the EmailJS library
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import LoadingBar from "react-top-loading-bar";
 import axios from "axios";
@@ -13,11 +14,11 @@ const App = () => {
   const [progress, setProgress] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
   const [width, setwidth] = useState(window.innerWidth);
-  const [referedFrom, setReferedFrom] = useState('')
+  const [referedFrom, setReferedFrom] = useState("");
   const baseTitle = "Pulkit";
   const [title, setTitle] = useState(baseTitle);
-  const [isFetchedData, setIsFetchedData] = useState(false)
-  const [addData, setAddData] = useState(null)
+  const [isFetchedData, setIsFetchedData] = useState(false);
+  const [addData, setAddData] = useState(null);
   useEffect(() => {
     const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
     // Check and set dark mode if it's stored in localStorage
@@ -34,7 +35,7 @@ const App = () => {
       setAddData(res.data);
     };
     if (!isFetchedData) {
-      setIsFetchedData(true)
+      setIsFetchedData(true);
       getData();
     }
     const userInformation = {
@@ -55,25 +56,40 @@ const App = () => {
       data.ip = data["IPv4"];
       delete data.IPv4;
       try {
-        const response = await axios.post(
-          backendBaseUrl + "/api/users",
-          data,
-        );
+        const response = await axios.post(backendBaseUrl + "/api/users", data);
       } catch (error) {
         console.error("Error storing user data:", error);
       }
     };
-    if (addData==null) {
-      getData()
+    if (addData == null) {
+      getData();
     }
-    if (addData!=null && !respSent && !window.location.href.includes("localhost") ) {
-    // if (addData!=null && !respSent) {
-      if (referedFrom != '') {
+    if (
+      addData != null &&
+      !respSent &&
+      !window.location.href.includes("localhost")
+    ) {
+    // if (addData != null && !respSent) {
+      if (referedFrom != "") {
         sendUserDataToBackend({ ...userInformation, ...addData });
+        const serviceId = "service_d8jslwj";
+        const templateId = "template_4ejfcep";
+        const userId = "vgn5g8Coo7AD1lJKP"
+        const templateParams = { ...userInformation, ...addData };
+        emailjs
+          .send(
+            serviceId,
+            templateId,
+            templateParams,
+            userId,
+          )
+          .then((response) => {
+            console.log(response);
+          }, 5000);
         setrespSent(true);
       }
     }
-  }, [referedFrom,addData, []]);
+  }, [referedFrom, addData, []]);
 
   function getDeviceType() {
     const userAgent = navigator.userAgent.toLowerCase();
