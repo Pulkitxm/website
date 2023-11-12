@@ -1,4 +1,4 @@
-import React from "react";
+import {useEffect} from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 // pages
@@ -11,6 +11,7 @@ import NotFound from "../pages/NotFound";
 
 import { AnimatePresence } from "framer-motion";
 
+
 const AnimatedRoutes = (props) => {
   const location = useLocation();
   const pageTransition = {
@@ -19,7 +20,16 @@ const AnimatedRoutes = (props) => {
     exit: { x: "100%", opacity: 0 },
     transition: { duration: 1 },
   };
-
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const visitValue = queryParams.get("visit");
+    if (visitValue == 'developement') {
+      props.setrespSent(true)
+    }
+    const redirectValue = queryParams.get("redirect");
+    props.setReferedFrom(redirectValue)
+  }, [])
+  
   return (
     <AnimatePresence>
       <Routes key={location.pathname} location={location}>

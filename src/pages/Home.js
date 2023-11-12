@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Typewriter from "../components/Typing";
 import "./pages.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { SiAdobepremierepro } from "react-icons/si";
@@ -31,8 +31,9 @@ const Home = ({
   const [firstLine, setFirstLine] = useState(false);
   const [secondLine, setSecondLine] = useState(false);
   const [thirdLine, setThirdLine] = useState(false);
-
+  const params = useParams()
   useEffect(() => {
+    console.log(params);
     document.title = baseTitle;
     initializeInitialPositions();
     document.addEventListener("mousemove", parallax);

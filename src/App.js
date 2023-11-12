@@ -7,19 +7,18 @@ import AnimatedRoutes from "./components/AnimatedRoutes";
 import LoadingBar from "react-top-loading-bar";
 import axios from "axios";
 const App = () => {
-  const backendBaseUrl =
-    "https://portfolio-backend-ecru-one.vercel.app";
+  const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
   const [respSent, setrespSent] = useState(false);
   const [IP, setIP] = useState(null);
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
   const [width, setwidth] = useState(window.innerWidth);
+  const [referedFrom, setReferedFrom] = useState('')
   const baseTitle = "Pulkit";
   const [title, setTitle] = useState(baseTitle);
   useEffect(() => {
-    const backendBaseUrl =
-    "https://portfolio-backend-ecru-one.vercel.app";
+    const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
     // Check and set dark mode if it's stored in localStorage
     if (
       window.localStorage.darkMode &&
@@ -38,50 +37,19 @@ const App = () => {
     getIp();
   }, []);
   useEffect(() => {
-    const additionalUserInformation = {
-      // Browser information
-      browserName: navigator.appName,
-      browserVersion: navigator.appVersion,
-      userAgentFull: navigator.userAgent,
-
-      // Screen size and color depth
-      screenAvailWidth: window.screen.availWidth,
-      screenAvailHeight: window.screen.availHeight,
-
-      // Window size
-      windowInnerWidth: window.innerWidth,
-      windowInnerHeight: window.innerHeight,
-
-      // Device information
-      deviceType: getDeviceType(), // You can define a function to determine device type
-
-      // Connection information
+    console.log(IP,referedFrom);
+    const userInformation = {
       isOnline: navigator.onLine,
-
-      // Performance information
       connectionType: navigator.connection
         ? navigator.connection.effectiveType
         : "unknown",
-
-      // Battery information (if available)
-      batteryLevel: navigator.getBattery
-        ? navigator.getBattery().then((battery) => battery.level)
-        : "unknown",
-    };
-    const userInformation = {
-      ...additionalUserInformation,
       ip: IP,
-      // Include the information you already collected
-      userAgent: navigator.userAgent,
       language: navigator.language,
       platform: navigator.platform,
       screenWidth: window.screen.width,
       screenHeight: window.screen.height,
-      colorDepth: window.screen.colorDepth,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      cookiesEnabled: navigator.cookieEnabled,
-      doNotTrack: navigator.doNotTrack,
-      referringUrl: document.referrer,
+      referringUrl: referedFrom,
       currentUrl: window.location.href,
     };
     const sendUserDataToBackend = async () => {
@@ -95,12 +63,14 @@ const App = () => {
       }
     };
     if (!respSent && !window.location.href.includes("localhost")) {
-      if (IP) {
+      if (IP && referedFrom!='') {
         sendUserDataToBackend();
         setrespSent(true);
       }
+    } else {
+      console.log(userInformation);
     }
-  }, [IP,[]]);
+  }, [IP, referedFrom, []]);
 
   function getDeviceType() {
     const userAgent = navigator.userAgent.toLowerCase();
@@ -164,6 +134,9 @@ const App = () => {
   };
   return (
     <>
+      {IP}
+      <br/>
+      {referedFrom}
       <Router
         style={{
           oveflowX: "hidden",
@@ -202,6 +175,8 @@ const App = () => {
             darkMode={darkMode}
             baseTitle={baseTitle}
             setTitle={setTitle}
+            setrespSent={setrespSent}
+            setReferedFrom={setReferedFrom}
           />
         </div>
       </Router>
