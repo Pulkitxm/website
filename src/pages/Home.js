@@ -31,9 +31,7 @@ const Home = ({
   const [firstLine, setFirstLine] = useState(false);
   const [secondLine, setSecondLine] = useState(false);
   const [thirdLine, setThirdLine] = useState(false);
-  const params = useParams()
   useEffect(() => {
-    console.log(params);
     document.title = baseTitle;
     initializeInitialPositions();
     document.addEventListener("mousemove", parallax);

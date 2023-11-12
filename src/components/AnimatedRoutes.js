@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 // pages
 import About from "../pages/About";
@@ -20,14 +20,17 @@ const AnimatedRoutes = (props) => {
     exit: { x: "100%", opacity: 0 },
     transition: { duration: 1 },
   };
+  const navigate = useNavigate();
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const visitValue = queryParams.get("visit");
     if (visitValue == 'developement') {
       props.setrespSent(true)
+      navigate('/')
     }
     const redirectValue = queryParams.get("redirect");
     props.setReferedFrom(redirectValue)
+    navigate('/')
   }, [])
   
   return (

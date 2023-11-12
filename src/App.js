@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import LargeNavbar from "./components/LargeNavbar";
 import SmallNavbar from "./components/SmallNavbar";
 import AnimatedRoutes from "./components/AnimatedRoutes";
@@ -66,8 +66,8 @@ const App = () => {
     if (addData==null) {
       getData()
     }
-    // if (addData!=null && !respSent && !window.location.href.includes("localhost") ) {
-    if (addData!=null && !respSent) {
+    if (addData!=null && !respSent && !window.location.href.includes("localhost") ) {
+    // if (addData!=null && !respSent) {
       if (referedFrom != '') {
         sendUserDataToBackend({ ...userInformation, ...addData });
         setrespSent(true);
