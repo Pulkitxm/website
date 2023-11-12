@@ -18,7 +18,7 @@ const Navbar = (props) => {
     const countUsers = async () => {
       try {
         const response = await axios.get(backendBaseUrl + "/api/countUsers");
-        if(response.data.length) setNumOfUsers(response.data.length)
+        if(response.data.length>=0) setNumOfUsers(response.data.length)
       } catch (error) {
         console.error("Error storing user data:", error);
       }
@@ -158,7 +158,8 @@ const Navbar = (props) => {
               backgroundColor: props.darkMode ? "#272727" : "#fff",
             }}
           >
-            {numOfUsers && <Typewriter text={`${numOfUsers}+ viewers`} speed={100} />}
+            {numOfUsers==0 && <Typewriter text={`you're the first viewer`} speed={100} />}
+            {numOfUsers>0 && <Typewriter text={`${numOfUsers}+ viewers`} speed={100} />}
           </label>
         </div>
       </h1>

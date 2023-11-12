@@ -9,7 +9,6 @@ import axios from "axios";
 const App = () => {
   const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
   const [respSent, setrespSent] = useState(false);
-  const [IP, setIP] = useState(null);
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
@@ -17,6 +16,8 @@ const App = () => {
   const [referedFrom, setReferedFrom] = useState('')
   const baseTitle = "Pulkit";
   const [title, setTitle] = useState(baseTitle);
+  const [isFetchedData, setIsFetchedData] = useState(false)
+  const [addData, setAddData] = useState(null)
   useEffect(() => {
     const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
     // Check and set dark mode if it's stored in localStorage
@@ -26,24 +27,21 @@ const App = () => {
     ) {
       setDarkMode(true);
     }
-    const getIp = async () => {
-      try {
-        const response = await axios.get(backendBaseUrl + "/api/getIpOfUser");
-        if (response.data.ip) setIP(response.data.ip);
-      } catch (error) {
-        console.error("Error storing user data:", error);
-      }
-    };
-    getIp();
   }, []);
   useEffect(() => {
-    console.log(IP,referedFrom);
+    const getData = async () => {
+      const res = await axios.get("https://geolocation-db.com/json/");
+      setAddData(res.data);
+    };
+    if (!isFetchedData) {
+      setIsFetchedData(true)
+      getData();
+    }
     const userInformation = {
       isOnline: navigator.onLine,
       connectionType: navigator.connection
         ? navigator.connection.effectiveType
         : "unknown",
-      ip: IP,
       language: navigator.language,
       platform: navigator.platform,
       screenWidth: window.screen.width,
@@ -51,26 +49,31 @@ const App = () => {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       referringUrl: referedFrom,
       currentUrl: window.location.href,
+      dateTime: new Date(Date.now()),
     };
-    const sendUserDataToBackend = async () => {
+    const sendUserDataToBackend = async (data) => {
+      data.ip = data["IPv4"];
+      delete data.IPv4;
       try {
         const response = await axios.post(
           backendBaseUrl + "/api/users",
-          userInformation,
+          data,
         );
       } catch (error) {
         console.error("Error storing user data:", error);
       }
     };
-    if (!respSent && !window.location.href.includes("localhost")) {
-      if (IP && referedFrom!='') {
-        sendUserDataToBackend();
+    if (addData==null) {
+      getData()
+    }
+    // if (addData!=null && !respSent && !window.location.href.includes("localhost") ) {
+    if (addData!=null && !respSent) {
+      if (referedFrom != '') {
+        sendUserDataToBackend({ ...userInformation, ...addData });
         setrespSent(true);
       }
-    } else {
-      console.log(userInformation);
     }
-  }, [IP, referedFrom, []]);
+  }, [referedFrom,addData, []]);
 
   function getDeviceType() {
     const userAgent = navigator.userAgent.toLowerCase();
@@ -134,11 +137,6 @@ const App = () => {
   };
   return (
     <>
-      {IP}
-      <br/>
-      {referedFrom}
-      <br/>
-      {setProgress}
       <Router
         style={{
           oveflowX: "hidden",
