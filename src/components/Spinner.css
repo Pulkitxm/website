@@ -1,0 +1,38 @@
+.fading-circles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.fading-circles div {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+  background-color: var(--primColor);
+  border-radius: 50%;
+  opacity: 0;
+  animation: fadeCircles 1.5s infinite ease-in-out;
+}
+
+.fading-circles div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.fading-circles div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeCircles {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

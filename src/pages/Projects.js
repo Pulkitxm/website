@@ -210,6 +210,7 @@ const Projects = ({
   toploadAnimate,
   baseTitle,
 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [showgenre, setshowgenre] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
@@ -328,6 +329,7 @@ const Projects = ({
                     <button
                       className={showgenre === genre.value ? "selected" : ""}
                       onClick={() => {
+                        setCurrentIndex(0);
                         setshowgenre(genre.value);
                         navigate("/projects");
                       }}
@@ -347,6 +349,8 @@ const Projects = ({
               darkMode={darkMode}
               toploadAnimate={toploadAnimate}
               seperate={true}
+              setCurrentIndex={setCurrentIndex}
+              currentIndex={currentIndex}
             />
           ) : (
             <ProjectSlider
@@ -355,6 +359,8 @@ const Projects = ({
               setshowgenre={setshowgenre}
               darkMode={darkMode}
               toploadAnimate={toploadAnimate}
+              setCurrentIndex={setCurrentIndex}
+              currentIndex={currentIndex}
             />
           )}
         </div>

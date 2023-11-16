@@ -84,9 +84,6 @@ const ProjectCard = ({
           <span>{project.desc}</span>
         </div>
       </div>
-      {showNext && (
-        <FaAngleDown className="scrollNext" onClick={scrollToNextProject} />
-      )}
     </div>
   );
 };

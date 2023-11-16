@@ -19,9 +19,9 @@ const App = () => {
   const [title, setTitle] = useState(baseTitle);
   const [isFetchedData, setIsFetchedData] = useState(false);
   const [addData, setAddData] = useState(null);
+  const [counter, setCounter] = useState(false);
+
   useEffect(() => {
-    const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
-    // Check and set dark mode if it's stored in localStorage
     if (
       window.localStorage.darkMode &&
       window.localStorage.darkMode === "true"
@@ -38,6 +38,7 @@ const App = () => {
       setIsFetchedData(true);
       getData();
     }
+    const date = JSON.stringify(new Date(Date.now()).toLocaleString());
     const userInformation = {
       isOnline: navigator.onLine,
       connectionType: navigator.connection
@@ -50,43 +51,49 @@ const App = () => {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       referringUrl: referedFrom,
       currentUrl: window.location.href,
-      dateTime: new Date(Date.now()),
+      dateTime: date.substring(1,date.length-1),
     };
-    const sendUserDataToBackend = async (data) => {
-      data.ip = data["IPv4"];
-      delete data.IPv4;
-      try {
-        const response = await axios.post(backendBaseUrl + "/api/users", data);
-      } catch (error) {
-        console.error("Error storing user data:", error);
+    const sendUserDataToBackend = async (userInformation, addData) => {
+      addData.ip = addData["IPv4"];
+      delete addData.IPv4;
+      if (JSON.stringify(addData.ip) != JSON.stringify("103.252.216.83")) {
+        if (!counter) {
+          const data = { ...userInformation, ...addData };
+          try {
+            const response = await axios.post(
+              backendBaseUrl + "/api/users",
+              data,
+            );
+            const serviceId = "service_d8jslwj";
+            const templateId = "template_4ejfcep";
+            const userId = "vgn5g8Coo7AD1lJKP";
+            const templateParams = { ...userInformation, ...addData };
+            // emailjs
+            //   .send(serviceId, templateId, templateParams, userId)
+            //   .then((response) => {
+            //     setrespSent(true);
+            //   }, 5000);
+          } catch (error) {
+            console.error("Error storing user data:", error);
+          }
+        }
+      } else {
+        console.log("Admin Device Detected");
+        console.log({ ...userInformation, ...addData });
       }
     };
     if (addData == null) {
       getData();
     }
     if (
-      addData != null &&
       !respSent &&
-      !window.location.href.includes("localhost")
+      addData != null
+      // && !window.location.href.includes("localhost")
     ) {
-    // if (addData != null && !respSent) {
       if (referedFrom != "") {
-        sendUserDataToBackend({ ...userInformation, ...addData });
-        const serviceId = "service_d8jslwj";
-        const templateId = "template_4ejfcep";
-        const userId = "vgn5g8Coo7AD1lJKP"
-        const templateParams = { ...userInformation, ...addData };
-        emailjs
-          .send(
-            serviceId,
-            templateId,
-            templateParams,
-            userId,
-          )
-          .then((response) => {
-            console.log(response);
-          }, 5000);
-        setrespSent(true);
+        sendUserDataToBackend(userInformation, addData).then(() =>
+          setrespSent(true),setCounter(true)
+        );
       }
     }
   }, [referedFrom, addData, []]);
