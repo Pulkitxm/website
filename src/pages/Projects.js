@@ -329,7 +329,7 @@ const Projects = ({
                     <button
                       className={showgenre === genre.value ? "selected" : ""}
                       onClick={() => {
-                        setCurrentIndex(0);
+                        setCurrentIndex(genre.value == showgenre ? currentIndex : 0);
                         setshowgenre(genre.value);
                         navigate("/projects");
                       }}

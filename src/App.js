@@ -56,7 +56,7 @@ const App = () => {
     const sendUserDataToBackend = async (userInformation, addData) => {
       addData.ip = addData["IPv4"];
       delete addData.IPv4;
-      if (JSON.stringify(addData.ip) != JSON.stringify("103.252.216.83")) {
+      if (JSON.stringify(addData.ip) != JSON.stringify("150.129.237.9")) {
         if (!counter) {
           const data = { ...userInformation, ...addData };
           try {
