@@ -4,7 +4,7 @@ import "./Spinner.css";
 
 const Spinner = () => {
   return (
-    <div class="fading-circles">
+    <div className="fading-circles">
       <div></div>
       <div></div>
       <div></div>

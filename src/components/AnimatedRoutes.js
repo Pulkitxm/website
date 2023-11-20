@@ -10,14 +10,15 @@ import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 
 import { AnimatePresence } from "framer-motion";
+import ScrollToTopButton from "./ScollToTop";
 
 const AnimatedRoutes = (props) => {
   const location = useLocation();
   const pageTransition = {
-    initial: { x: "-100%", opacity: 0 },
-    animate: { x: "0%", opacity: 1 },
-    exit: { x: "100%", opacity: 0 },
-    transition: { duration: 1 },
+    // initial: { x: "-100%", opacity: 0 },
+    // animate: { x: "0%", opacity: 1 },
+    // exit: { x: "100%", opacity: 0 },
+    // transition: { duration: 1 },
   };
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -75,20 +76,25 @@ const AnimatedRoutes = (props) => {
         <Route
           path="/projects"
           element={
-            <Projects
-              pageTransition={pageTransition}
-              baseTitle={props.baseTitle}
-              setTitle={props.setTitle}
-              width={props.width}
-              toploadAnimate={props.toploadAnimate}
-              darkMode={props.darkMode}
-            />
+            <>
+              <ScrollToTopButton />
+              <Projects
+                backendBaseUrl={props.backendBaseUrl}
+                pageTransition={pageTransition}
+                baseTitle={props.baseTitle}
+                setTitle={props.setTitle}
+                width={props.width}
+                toploadAnimate={props.toploadAnimate}
+                darkMode={props.darkMode}
+              />
+            </>
           }
         />
         <Route
           path="/projects/:id"
           element={
             <Projects
+              backendBaseUrl={props.backendBaseUrl}
               pageTransition={pageTransition}
               baseTitle={props.baseTitle}
               setTitle={props.setTitle}

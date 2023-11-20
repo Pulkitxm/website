@@ -13,10 +13,10 @@ const ProjectSlider = ({
 }) => {
   const sliderRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [isComplete, setIsComplete] = useState(false)
+  const [isComplete, setIsComplete] = useState(false);
   useEffect(() => {
-    setIsComplete(currentIndex >= projects.length)
-  },[currentIndex])
+    setIsComplete(currentIndex >= projects.length);
+  }, [currentIndex]);
   const loadMoreProjects = () => {
     setLoading(true);
     setTimeout(() => {
@@ -69,7 +69,7 @@ const ProjectSlider = ({
             />
           );
         })}
-        {!isComplete && loading && (
+        {projects.length === 0 && (
           <div
             className="loading-animation"
             style={{
@@ -78,7 +78,19 @@ const ProjectSlider = ({
               alignItems: "center",
             }}
           >
-            <Spinner/>
+            <Spinner />
+          </div>
+        )}
+        {!isComplete && loading && projects.length > 0 && (
+          <div
+            className="loading-animation"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Spinner />
           </div>
         )}
         <div style={{ height: "5em", opacity: 0 }} />

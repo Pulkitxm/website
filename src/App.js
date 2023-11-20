@@ -193,6 +193,7 @@ const App = () => {
         </div>
         <div className={`contentofpulkit ${darkMode ? "darkContent" : ""}`}>
           <AnimatedRoutes
+            backendBaseUrl={backendBaseUrl}
             width={width}
             toploadAnimate={toploadAnimate}
             darkMode={darkMode}
