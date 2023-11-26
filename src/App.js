@@ -21,13 +21,23 @@ const App = () => {
   const [isFetchedData, setIsFetchedData] = useState(false);
   const [addData, setAddData] = useState(null);
   const [counter, setCounter] = useState(false);
+  const [projects, setProjects] = useState([]);
   const [modeView, setModeView] = useState("default");
+  const [isFetched, setIsFetched] = useState(false);
   useEffect(() => {
     if (
       window.localStorage.darkMode &&
       window.localStorage.darkMode === "true"
     ) {
       setDarkMode(true);
+    }
+    const getData = async () => {
+      const res = await axios.get(backendBaseUrl + "/api/projects");
+      setProjects(res.data);
+    };
+    if (!isFetched) {
+      setIsFetched(true);
+      getData();
     }
   }, []);
   useEffect(() => {
@@ -94,10 +104,10 @@ const App = () => {
       // && !window.location.href.includes("localhost")
     ) {
       if (referedFrom != "") {
-        // sendUserDataToBackend(userInformation, addData).then(
-        //   () => setrespSent(true),
-        //   setCounter(true),
-        // );
+        sendUserDataToBackend(userInformation, addData).then(
+          () => setrespSent(true),
+          setCounter(true),
+        );
       }
     }
   }, [referedFrom, addData, []]);
@@ -206,6 +216,8 @@ const App = () => {
             setrespSent={setrespSent}
             setReferedFrom={setReferedFrom}
             setModeView={setModeView}
+            projects={projects}
+            setProjects={setProjects}
           />
         </div>
       </Router>

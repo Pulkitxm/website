@@ -25,7 +25,7 @@ const AnimatedRoutes = (props) => {
     const visitValue = queryParams.get("visit");
     const redirectValue = queryParams.get("redirect");
     if (visitValue == "developement") {
-      props.setModeView('dev');
+      props.setModeView("dev");
     }
     props.setReferedFrom(redirectValue);
   }, []);
@@ -86,6 +86,8 @@ const AnimatedRoutes = (props) => {
                 width={props.width}
                 toploadAnimate={props.toploadAnimate}
                 darkMode={props.darkMode}
+                projects={props.projects}
+                setProjects={props.setProjects}
               />
             </>
           }
@@ -101,6 +103,8 @@ const AnimatedRoutes = (props) => {
               width={props.width}
               toploadAnimate={props.toploadAnimate}
               darkMode={props.darkMode}
+              projects={props.projects}
+              setProjects={props.setProjects}
             />
           }
         />

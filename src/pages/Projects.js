@@ -17,14 +17,14 @@ const Projects = ({
   toploadAnimate,
   baseTitle,
   backendBaseUrl,
+  projects,
+  setProjects,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showgenre, setshowgenre] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
   const [singleProject, setSingleProject] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [isFetched, setIsFetched] = useState(false);
   const genres = [
     {
       showText: "All",
@@ -96,21 +96,11 @@ const Projects = ({
         setSingleProject("error");
       }
     }
-    const getData = async () => {
-      const res = await axios.get((backendBaseUrl + "/api/projects"));
-      setTimeout(() => {
-      setProjects(res.data);
-      }, 2000);
-    };
-    if (!isFetched) {
-      setIsFetched(true);
-        getData();
-    }
   }, []);
   if (singleProject === "error") {
     return <NotFound />;
   } else {
-    return (
+    return projects&&(
       <motion.div
         initial="initial"
         animate="animate"
