@@ -7,6 +7,7 @@ import emailjs from "emailjs-com"; // Import the EmailJS library
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import LoadingBar from "react-top-loading-bar";
 import axios from "axios";
+import { m } from "framer-motion";
 const App = () => {
   const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
   const [respSent, setrespSent] = useState(false);
@@ -20,7 +21,7 @@ const App = () => {
   const [isFetchedData, setIsFetchedData] = useState(false);
   const [addData, setAddData] = useState(null);
   const [counter, setCounter] = useState(false);
-
+  const [modeView, setModeView] = useState("default");
   useEffect(() => {
     if (
       window.localStorage.darkMode &&
@@ -51,38 +52,40 @@ const App = () => {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       referringUrl: referedFrom,
       currentUrl: window.location.href,
-      dateTime: date.substring(1,date.length-1),
+      dateTime: date.substring(1, date.length - 1),
     };
     const sendUserDataToBackend = async (userInformation, addData) => {
       addData.ip = addData["IPv4"];
       delete addData.IPv4;
-      if (JSON.stringify(addData.ip) != JSON.stringify("150.129.237.9")) {
+      if (!respSent && modeView != "dev") {
         if (!counter) {
-          const data = { ...userInformation, ...addData };
-          try {
-            const response = await axios.post(
-              backendBaseUrl + "/api/users",
-              data,
-            );
-            const serviceId = "service_d8jslwj";
-            const templateId = "template_4ejfcep";
-            const userId = "vgn5g8Coo7AD1lJKP";
-            const templateParams = { ...userInformation, ...addData };
-            // emailjs
-            //   .send(serviceId, templateId, templateParams, userId)
-            //   .then((response) => {
-            //     setrespSent(true);
-            //   }, 5000);
-          } catch (error) {
-            console.error("Error storing user data:", error);
-          }
+           const data = { ...userInformation, ...addData };
+           try {
+             const response = await axios.post(
+               backendBaseUrl + "/api/users",
+               data,
+               );
+               setrespSent(true);
+               //  const serviceId = "service_d8jslwj";
+               //  const templateId = "template_4ejfcep";
+               //  const userId = "vgn5g8Coo7AD1lJKP";
+               //  const templateParams = { ...userInformation, ...addData };
+               // emailjs
+             //   .send(serviceId, templateId, templateParams, userId)
+             //   .then((response) => {
+             //     setrespSent(true);
+             //   }, 5000);
+            } catch (error) {
+              console.error("Error storing user data:", error);
+            }
+         }
+        } else {
+          console.log("Admin Device Detected");
+          console.log({ ...userInformation, ...addData });
+          setrespSent(true);
         }
-      } else {
-        console.log("Admin Device Detected");
-        console.log({ ...userInformation, ...addData });
-      }
-    };
-    if (addData == null) {
+      };
+      if (addData == null) {
       getData();
     }
     if (
@@ -91,9 +94,10 @@ const App = () => {
       // && !window.location.href.includes("localhost")
     ) {
       if (referedFrom != "") {
-        sendUserDataToBackend(userInformation, addData).then(() =>
-          setrespSent(true),setCounter(true)
-        );
+        // sendUserDataToBackend(userInformation, addData).then(
+        //   () => setrespSent(true),
+        //   setCounter(true),
+        // );
       }
     }
   }, [referedFrom, addData, []]);
@@ -201,6 +205,7 @@ const App = () => {
             setTitle={setTitle}
             setrespSent={setrespSent}
             setReferedFrom={setReferedFrom}
+            setModeView={setModeView}
           />
         </div>
       </Router>
