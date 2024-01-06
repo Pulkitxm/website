@@ -67,7 +67,7 @@ const App = () => {
     const sendUserDataToBackend = async (userInformation, addData) => {
       addData.ip = addData["IPv4"];
       delete addData.IPv4;
-      if (!respSent && modeView != "dev") {
+      if (!respSent && modeView != "dev" && !process.env.NODE_ENV=="development") {
         if (!counter) {
            const data = { ...userInformation, ...addData };
            try {
@@ -87,7 +87,7 @@ const App = () => {
              //   }, 5000);
             } catch (error) {
               console.error("Error storing user data:", error);
-            }
+            } 
          }
         } else {
           console.log("Admin Device Detected");

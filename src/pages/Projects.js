@@ -31,56 +31,92 @@ const Projects = ({
       value: "all",
     },
     {
-      showText: "Major Projects",
+      showText: "Major",
       value: "major",
     },
     {
-      showText: "Minor Projects",
+      showText: "Minor",
       value: "minor",
     },
     {
-      showText: "HTML  ",
-      value: "html",
-    },
-    {
-      showText: "css",
-      value: "css",
-    },
-    {
-      showText: "js",
-      value: "js",
-    },
-    {
-      showText: "ReactJs",
-      value: "reactjs",
-    },
-    {
-      showText: "ExpressJs",
-      value: "expressjs",
-    },
-    {
-      showText: "NodeJs",
-      value: "nodejs",
-    },
-    {
-      showText: "MongoDB",
+      showText: "Mongodb",
       value: "mongodb",
     },
     {
-      showText: "JWT",
+      showText: "Mongoose",
+      value: "mongoose",
+    },
+    {
+      showText: "Html",
+      value: "html",
+    },
+    {
+      showText: "Css",
+      value: "css",
+    },
+    {
+      showText: "Js",
+      value: "js",
+    },
+    {
+      showText: "Expressjs",
+      value: "expressjs",
+    },
+    {
+      showText: "Nodejs",
+      value: "nodejs",
+    },
+    {
+      showText: "React Native",
+      value: "React Native",
+    },
+    {
+      showText: "GraphQl",
+      value: "GraphQl",
+    },
+    {
+      showText: "ApolloGraphQl",
+      value: "ApolloGraphQl",
+    },
+    {
+      showText: "Reactjs",
+      value: "reactjs",
+    },
+    {
+      showText: "Ejs",
+      value: "ejs",
+    },
+    {
+      showText: "Python",
+      value: "python",
+    },
+    {
+      showText: "Java",
+      value: "java",
+    },
+    {
+      showText: "Bootstrap",
+      value: "bootstrap",
+    },
+    {
+      showText: "Jwt",
       value: "jwt",
     },
     {
-      showText: "APIs",
+      showText: "fetch Api",
       value: "fetch api",
     },
     {
-      showText: "Extensions",
-      value: "extensions",
+      showText: "Geocoding",
+      value: "geocoding",
     },
     {
       showText: "Editing",
       value: "editing",
+    },
+    {
+      showText: "Extensionsa",
+      value: "extensionsa",
     },
   ];
   useEffect(() => {

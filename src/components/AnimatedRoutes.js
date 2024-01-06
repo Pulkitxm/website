@@ -24,8 +24,8 @@ const AnimatedRoutes = (props) => {
     const queryParams = new URLSearchParams(location.search);
     const visitValue = queryParams.get("visit");
     const redirectValue = queryParams.get("redirect");
+    props.setModeView("dev");
     if (visitValue == "developement") {
-      props.setModeView("dev");
     }
     props.setReferedFrom(redirectValue);
   }, []);
