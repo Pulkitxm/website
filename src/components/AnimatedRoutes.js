@@ -15,17 +15,17 @@ import ScrollToTopButton from "./ScollToTop";
 const AnimatedRoutes = (props) => {
   const location = useLocation();
   const pageTransition = {
-    // initial: { x: "-100%", opacity: 0 },
-    // animate: { x: "0%", opacity: 1 },
-    // exit: { x: "100%", opacity: 0 },
-    // transition: { duration: 1 },
+    initial: { x: "-100%", opacity: 0 },
+    animate: { x: "0%", opacity: 1 },
+    exit: { x: "100%", opacity: 0 },
+    transition: { duration: 1 },
   };
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const visitValue = queryParams.get("visit");
     const redirectValue = queryParams.get("redirect");
-    props.setModeView("dev");
     if (visitValue == "developement") {
+      props.setModeView("dev");
     }
     props.setReferedFrom(redirectValue);
   }, []);

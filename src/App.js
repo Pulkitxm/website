@@ -67,7 +67,9 @@ const App = () => {
     const sendUserDataToBackend = async (userInformation, addData) => {
       addData.ip = addData["IPv4"];
       delete addData.IPv4;
-      if (!respSent && modeView != "dev" && !process.env.NODE_ENV=="development") {
+      if (!respSent && modeView !== "dev"
+        && !process.env.NODE_ENV === "development"
+      ){
         if (!counter) {
            const data = { ...userInformation, ...addData };
            try {
@@ -95,8 +97,8 @@ const App = () => {
           setrespSent(true);
         }
       };
-      if (addData == null) {
-      getData();
+    if (addData == null) {
+      getData()
     }
     if (
       !respSent &&
@@ -110,7 +112,7 @@ const App = () => {
         );
       }
     }
-  }, [referedFrom, addData, []]);
+  }, [referedFrom, addData, counter, isFetchedData, modeView, respSent]);
 
   function getDeviceType() {
     const userAgent = navigator.userAgent.toLowerCase();

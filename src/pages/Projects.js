@@ -127,12 +127,12 @@ const Projects = ({
       const project = projects.filter((i) => i.id === params.id)[0];
       if (project) {
         setSingleProject(project);
-        document.title = `${baseTitle} | Project-${project.title}`;
+        document.title = `${baseTitle} | Project | ${project.title}`;
       } else {
         setSingleProject("error");
       }
     }
-  }, []);
+  }, [projects]);
   if (singleProject === "error") {
     return <NotFound />;
   } else {
