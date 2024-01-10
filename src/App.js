@@ -7,7 +7,6 @@ import emailjs from "emailjs-com"; // Import the EmailJS library
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import LoadingBar from "react-top-loading-bar";
 import axios from "axios";
-import { m } from "framer-motion";
 const App = () => {
   const backendBaseUrl = "https://portfolio-backend-ecru-one.vercel.app";
   const [respSent, setrespSent] = useState(false);
@@ -68,7 +67,7 @@ const App = () => {
       addData.ip = addData["IPv4"];
       delete addData.IPv4;
       if (!respSent && modeView !== "dev"
-        && !process.env.NODE_ENV === "development"
+        && !(process.env.NODE_ENV === "development")
       ){
         if (!counter) {
            const data = { ...userInformation, ...addData };

@@ -11,7 +11,7 @@ const Card = ({ firstLine, thirdLine, width, secondLine, darkMode }) => {
         backgroundColor: darkMode ? "rgb(76 76 76)" : "#fff",
       }}
     >
-      <p>
+      <div>
         <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
           {"01"} <span className="spanarr"> {"<"}</span>
         </span>
@@ -23,7 +23,7 @@ const Card = ({ firstLine, thirdLine, width, secondLine, darkMode }) => {
         <span className="spani">
           <span className="spanarr"> {">"}</span>
         </span>
-      </p>
+      </div>
       <p>
         <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
           {"02"} <span className="spanarr"> {"<"}</span>
