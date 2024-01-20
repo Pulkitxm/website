@@ -11,19 +11,23 @@ const Card = ({ firstLine, thirdLine, width, secondLine, darkMode }) => {
         backgroundColor: darkMode ? "rgb(76 76 76)" : "#fff",
       }}
     >
-      <div>
+      <p>
         <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
           {"01"} <span className="spanarr"> {"<"}</span>
         </span>
         {firstLine && (
           <div className={`${darkMode ? "darkTypewriter" : "lightTypewriter"}`}>
-            <Typewriter text="Hi! I am Pulkit" speed={50} />
+            <Typewriter
+              text="Hi! I am Pulkit"
+              style={{ color: darkMode ? "#fff" : "#000" }}
+              speed={50}
+            />
           </div>
         )}
         <span className="spani">
           <span className="spanarr"> {">"}</span>
         </span>
-      </div>
+      </p>
       <p>
         <span className="spani" style={{ color: darkMode ? "#fff" : "#000" }}>
           {"02"} <span className="spanarr"> {"<"}</span>
